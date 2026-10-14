@@ -10,6 +10,7 @@ pub mod interaction;
 pub mod radar;
 pub mod radial;
 pub mod target_status;
+pub mod theme;
 
 pub use button_bar::{ButtonBar, MacroSlot};
 pub use container::{ContainerError, ContainerType, ContainerWindow, Item};
@@ -21,3 +22,4 @@ pub use interaction::{RadialMenuGenerator, TargetKind};
 pub use radar::{BlipType, RadarBlip, RadarMinimap};
 pub use radial::{RadialMenu, RadialOption};
 pub use target_status::TargetStatus;
+pub use theme::{PreCuUiRenderer, UiMeshBuffer, UiVertex, colors};

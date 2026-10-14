@@ -14,6 +14,7 @@ members = [
     "crates/swg-client-audio",
     "crates/swg-client-sync",
     "crates/swg-client-customization",
+    "crates/swg-client-app",
 ]
 resolver = "2"
 
