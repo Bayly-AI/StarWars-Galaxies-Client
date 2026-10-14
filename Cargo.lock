@@ -1953,6 +1953,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "swg-client-anim"
+version = "0.1.0"
+dependencies = [
+ "glam",
+ "serde",
+ "swg-client-iff",
+ "swg-client-mesh",
+ "tempfile",
+ "thiserror 2.0.21",
+ "tracing",
+]
+
+[[package]]
 name = "swg-client-core"
 version = "0.1.0"
 dependencies = [

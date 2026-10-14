@@ -7,6 +7,7 @@ members = [
     "crates/swg-client-terrain",
     "crates/swg-client-render",
     "crates/swg-client-mesh",
+    "crates/swg-client-anim",
 ]
 resolver = "2"
 

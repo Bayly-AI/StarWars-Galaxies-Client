@@ -1,0 +1,18 @@
+[package]
+name = "swg-client-anim"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+swg-client-iff = { path = "../swg-client-iff" }
+swg-client-mesh = { path = "../swg-client-mesh" }
+glam = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+tracing = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
