@@ -1,0 +1,17 @@
+[package]
+name = "swg-client-render"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+glam = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+wgpu = "24"
+bytemuck = { version = "1.25", features = ["derive"] }
+tracing = { workspace = true }
+swg-client-core = { path = "../swg-client-core" }
+swg-client-terrain = { path = "../swg-client-terrain" }

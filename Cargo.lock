@@ -1993,6 +1993,20 @@ dependencies = [
 ]
 
 [[package]]
+name = "swg-client-render"
+version = "0.1.0"
+dependencies = [
+ "bytemuck",
+ "glam",
+ "serde",
+ "swg-client-core",
+ "swg-client-terrain",
+ "thiserror 2.0.21",
+ "tracing",
+ "wgpu",
+]
+
+[[package]]
 name = "swg-client-terrain"
 version = "0.1.0"
 dependencies = [
