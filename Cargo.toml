@@ -11,6 +11,7 @@ members = [
     "crates/swg-client-world",
     "crates/swg-client-interior",
     "crates/swg-client-ui",
+    "crates/swg-client-audio",
 ]
 resolver = "2"
 
