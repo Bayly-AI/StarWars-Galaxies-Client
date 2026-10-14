@@ -59,6 +59,8 @@ impl Default for ClientConfig {
             window_mode: WindowMode::Windowed,
             graphics_backend: ClientGraphicsBackend::Auto,
             asset_paths: vec![
+                PathBuf::from("downloads/retail_tre/SWG_Files"),
+                PathBuf::from("../downloads/retail_tre/SWG_Files"),
                 PathBuf::from("downloads/original_client"),
                 PathBuf::from("data"),
             ],
