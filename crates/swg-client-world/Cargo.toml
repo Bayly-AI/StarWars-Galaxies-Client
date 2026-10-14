@@ -1,0 +1,20 @@
+[package]
+name = "swg-client-world"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+swg-client-iff = { path = "../swg-client-iff" }
+swg-client-terrain = { path = "../swg-client-terrain" }
+swg-client-mesh = { path = "../swg-client-mesh" }
+glam = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+tracing = { workspace = true }
+fastrand = { workspace = true }
+
+[dev-dependencies]
+tempfile = { workspace = true }
