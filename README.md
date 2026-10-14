@@ -1,15 +1,30 @@
-# StarWars-Galaxies-Client
+# StarWars-Galaxies-Client (Client)
 
-> **Ground-Up 64-Bit Modern Client for Star Wars Galaxies (Strategy B)**  
-> Built in Rust with `wgpu`, `winit`, `bevy_ecs`, `kira`, and `egui`.
+**Ground-Up 64-Bit Modern Client for Star Wars Galaxies (Strategy B) & Enterprise Agentic Application**
+
+> Technical Reference: See [TECH_README.md](TECH_README.md) for architecture, subsystem maps, and specifications.
 
 ---
 
-## Overview
+## 🌟 Sales & Feature Overview
 
-`StarWars-Galaxies-Client` is a clean-room, native 64-bit cross-platform client designed to replace the legacy 32-bit DirectX 9 client (`SwgClient_r.exe`).
+`StarWars-Galaxies-Client` is a clean-room, native 64-bit cross-platform client designed to replace the legacy 32-bit DirectX 9 client (`SwgClient_r.exe`). Powered by Rust and governed by the HATHOR agentic framework:
 
-By mounting authentic Star Wars Galaxies `.tre` archives directly into a zero-copy Virtual File System (VFS) and re-implementing the procedural `.trn` fractal terrain pipeline, it delivers modern visual fidelity, high frame rates (144Hz+), native multi-monitor/4K scaling, and support for Windows, macOS (via Metal), and Linux (via Vulkan).
+- 🎮 **Strategy B Modern Engine**: Native 64-bit engine mounting authentic `.tre` archives via zero-copy memory mapping and procedural `.trn` terrain tessellation.
+- 🎨 **Modern Graphics (`wgpu`)**: Cross-platform Vulkan, Metal, and DirectX 12 rendering with clustered forward lighting and high refresh rate support (144Hz+).
+- 🔊 **3D Positional Audio (`kira`)**: Dynamic cantina performances, ambient planet soundscapes, and combat audio.
+- 🛡️ **Zero-Trust Governance & Execution**: Hardened boundaries against unauthorized file mutations and automated quality gates.
+- 🧠 **Tri-Graph Substrate**: Integrated KnowledgeGraph, ContextGraph, and MemoryGraph for autonomous reasoning.
+- ⚡ **Autonomous Workflows**: Pre-configured bot workflows for CI/CD and repository hygiene.
+
+---
+
+## Quick Start
+
+```sh
+hath0r doctor
+hath0r agentgraph status
+```
 
 ---
 
@@ -27,7 +42,7 @@ By mounting authentic Star Wars Galaxies `.tre` archives directly into a zero-co
 
 ## Directory Structure
 
-```
+```text
 Client/
 ├── Cargo.toml                  # Client workspace configuration
 ├── crates/
@@ -37,9 +52,13 @@ Client/
 │   ├── swg-client-ui/          # Authentic Pre-CU HUD, radial menus & containers
 │   ├── swg-client-net/         # Client SOE UDP socket, prediction & interpolation
 │   └── swg-client-audio/       # 3D spatial audio and interactive music engine
-└── docs/
-    ├── ARCHITECTURE.md         # Full client rendering pipeline and subsystems
-    └── PRE_CU_SPECIFICATION.md # Gameplay, UI, and animation behavioral specs
+├── docs/
+│   ├── ARCHITECTURE.md         # Full client rendering pipeline and subsystems
+│   ├── PRE_CU_SPECIFICATION.md # Gameplay, UI, and animation behavioral specs
+│   └── governance/playbooks/   # HATH0R coding and troubleshooting playbooks
+├── contracts/                  # JSON schema contracts
+├── cfg/                        # Configuration definitions
+└── tests/                      # Automated test harnesses
 ```
 
 ---
@@ -47,3 +66,10 @@ Client/
 ## Documentation
 * See [`docs/ARCHITECTURE.md`](./docs/ARCHITECTURE.md) for details on terrain tessellation, the asset pipeline, and the rendering architecture.
 * See [`docs/PRE_CU_SPECIFICATION.md`](./docs/PRE_CU_SPECIFICATION.md) for gameplay interface and asset specifications.
+* See [`TECH_README.md`](./TECH_README.md) for technical architecture maps and subsystem registries.
+
+---
+
+## License
+
+Apache License 2.0

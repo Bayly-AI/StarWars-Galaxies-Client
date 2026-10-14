@@ -1,0 +1,38 @@
+# Local secrets & credentials
+.env
+.env.*
+!.env.example
+.credentials/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+._*
+
+# Rust / Cargo build artifacts
+target/
+**/*.rs.bk
+
+# Python & testing cache
+__pycache__/
+*.py[codz]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Editor files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Hath0r local runtime metadata & caches
+.hath0r/events.jsonl
+.hath0r/finops/
+.hath0r/state/
+.hath0r/cache/
+.hath0r/spool/
+.hath0r/cccd/
+.hath0r/cccd_state.json
+.hath0r/l2ws_warmstarts.json
+.hath0r/**/*.local.*

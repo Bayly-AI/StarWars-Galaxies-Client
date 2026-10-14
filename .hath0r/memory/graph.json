@@ -1,0 +1,17 @@
+{
+  "nodes": [
+    {
+      "id": "rule:cr-cli-entry-001",
+      "type": "rule",
+      "label": "Start with CLI Rule",
+      "content": "Always start with hath0r."
+    },
+    {
+      "id": "concept:tri-graph",
+      "type": "concept",
+      "label": "Tri-Graph Substrate",
+      "content": "KnowledgeGraph, ContextGraph, MemoryGraph."
+    }
+  ],
+  "edges": []
+}
