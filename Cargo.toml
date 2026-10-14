@@ -1,0 +1,26 @@
+[workspace]
+members = [
+    "crates/swg-client-core",
+]
+resolver = "2"
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+authors = ["Bayly AI <engineering@baylyai.com>"]
+license = "GPL-3.0"
+repository = "https://github.com/Bayly-AI/StarWars-Galaxies-Client"
+
+[workspace.dependencies]
+bytes = "1.10"
+thiserror = "2.0"
+serde = { version = "1.0", features = ["derive"] }
+bitflags = "2.8"
+glam = { version = "0.29", features = ["serde"] }
+crc32fast = "1.4"
+memmap2 = "0.9"
+flate2 = "1.0"
+tempfile = "3.17"
+tokio = { version = "1.43", features = ["full"] }
+fastrand = "2.3"
+tracing = "0.1"
