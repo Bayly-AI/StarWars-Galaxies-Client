@@ -10,6 +10,7 @@ members = [
     "crates/swg-client-anim",
     "crates/swg-client-world",
     "crates/swg-client-interior",
+    "crates/swg-client-ui",
 ]
 resolver = "2"
 
