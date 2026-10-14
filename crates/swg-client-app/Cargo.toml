@@ -1,0 +1,34 @@
+[package]
+name = "swg-client-app"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[[bin]]
+name = "swg-client"
+path = "src/main.rs"
+
+[dependencies]
+glam = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+wgpu = "24"
+swg-client-core = { path = "../swg-client-core" }
+swg-client-vfs = { path = "../swg-client-vfs" }
+swg-client-net = { path = "../swg-client-net" }
+swg-client-terrain = { path = "../swg-client-terrain" }
+swg-client-render = { path = "../swg-client-render" }
+swg-client-mesh = { path = "../swg-client-mesh" }
+swg-client-anim = { path = "../swg-client-anim" }
+swg-client-world = { path = "../swg-client-world" }
+swg-client-ui = { path = "../swg-client-ui" }
+swg-client-audio = { path = "../swg-client-audio" }
+swg-client-customization = { path = "../swg-client-customization" }
+swg-client-sync = { path = "../swg-client-sync" }
+
+[dev-dependencies]
+tempfile = { workspace = true }
