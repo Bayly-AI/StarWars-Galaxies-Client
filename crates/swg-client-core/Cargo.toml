@@ -1,0 +1,19 @@
+[package]
+name = "swg-client-core"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+glam = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+tokio = { workspace = true }
+tracing = { workspace = true }
+wgpu = "24"
+winit = "0.30"
+bevy_ecs = "0.15"
+pollster = "0.4"
+raw-window-handle = "0.6"

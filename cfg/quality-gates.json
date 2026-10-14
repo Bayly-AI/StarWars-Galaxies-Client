@@ -1,0 +1,38 @@
+{
+  "apiVersion": "hath0r.quality-gates/v1",
+  "kind": "QualityGatesConfig",
+  "metadata": {
+    "name": "swg-client-quality-gates",
+    "control_tower": "Bayly-AI/StarWars-Galaxies-Client",
+    "updated": "2026-10-14"
+  },
+  "hard_gates": [
+    "SonarCloud Quality Gate",
+    "validate-promotion-path"
+  ],
+  "preflight": {
+    "enabled": true,
+    "commands": [
+      ["cargo", "test", "--workspace"],
+      ["cargo", "clippy", "--workspace", "--", "-D", "warnings"]
+    ]
+  },
+  "pre_deploy": {
+    "counts_toward_coverage": true,
+    "commands": [
+      ["cargo", "test", "--workspace"]
+    ]
+  },
+  "post_deploy": {
+    "counts_toward_coverage": false,
+    "commands": []
+  },
+  "wiki": {
+    "enabled": false,
+    "require_github_wiki": false
+  },
+  "knowledge_share": {
+    "enabled": true,
+    "prefer_project_mcp": true
+  }
+}
