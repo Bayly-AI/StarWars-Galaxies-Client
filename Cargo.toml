@@ -3,6 +3,7 @@ members = [
     "crates/swg-client-core",
     "crates/swg-client-vfs",
     "crates/swg-client-iff",
+    "crates/swg-client-net",
 ]
 resolver = "2"
 
