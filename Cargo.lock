@@ -2059,6 +2059,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "swg-client-world"
+version = "0.1.0"
+dependencies = [
+ "fastrand",
+ "glam",
+ "serde",
+ "swg-client-iff",
+ "swg-client-mesh",
+ "swg-client-terrain",
+ "tempfile",
+ "thiserror 2.0.21",
+ "tracing",
+]
+
+[[package]]
 name = "syn"
 version = "2.0.119"
 source = "registry+https://github.com/rust-lang/crates.io-index"
