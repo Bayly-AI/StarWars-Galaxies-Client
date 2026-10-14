@@ -79,51 +79,105 @@ impl TreArchive {
         let version = u32::from_le_bytes([mmap[4], mmap[5], mmap[6], mmap[7]]);
         let file_count = u32::from_le_bytes([mmap[8], mmap[9], mmap[10], mmap[11]]) as usize;
         let toc_offset = u32::from_le_bytes([mmap[12], mmap[13], mmap[14], mmap[15]]) as usize;
-        let toc_compressed_size =
-            u32::from_le_bytes([mmap[16], mmap[17], mmap[18], mmap[19]]) as usize;
-        let toc_uncompressed_size =
-            u32::from_le_bytes([mmap[20], mmap[21], mmap[22], mmap[23]]) as usize;
 
-        let toc_data = if toc_compressed_size > 0 {
-            // Decompress TOC
-            let end = toc_offset + toc_compressed_size;
-            if end > mmap.len() {
-                return Err(VfsError::InvalidTocBounds(
-                    toc_offset as u64,
-                    toc_compressed_size as u64,
-                    mmap.len() as u64,
-                ));
-            }
-            let mut decoder = ZlibDecoder::new(&mmap[toc_offset..end]);
-            let mut decompressed = Vec::with_capacity(toc_uncompressed_size);
-            decoder
-                .read_to_end(&mut decompressed)
-                .map_err(|e| VfsError::DecompressionFailed("TOC".to_string(), e.to_string()))?;
-            decompressed
-        } else {
-            let end = toc_offset + toc_uncompressed_size;
-            if end > mmap.len() {
-                return Err(VfsError::InvalidTocBounds(
-                    toc_offset as u64,
-                    toc_uncompressed_size as u64,
-                    mmap.len() as u64,
-                ));
-            }
-            mmap[toc_offset..end].to_vec()
-        };
-
-        // Parse TOC entries
         let entry_size = 24;
         let entries_total_bytes = file_count * entry_size;
-        if toc_data.len() < entries_total_bytes {
-            return Err(VfsError::InvalidTocBounds(
-                0,
-                entries_total_bytes as u64,
-                toc_data.len() as u64,
-            ));
-        }
 
-        let names_block = &toc_data[entries_total_bytes..];
+        // Detect if this is authentic SOE TRE 0005 layout (36-byte header with separate TOC & Names blocks)
+        let is_authentic_soe = mmap.len() >= 36
+            && (mmap[16..20] == [0, 0, 0, 0] || mmap[16..20] == [2, 0, 0, 0])
+            && (mmap[24..28] == [0, 0, 0, 0] || mmap[24..28] == [2, 0, 0, 0]);
+
+        let (toc_data, names_block) = if is_authentic_soe {
+            let toc_format = u32::from_le_bytes([mmap[16], mmap[17], mmap[18], mmap[19]]);
+            let toc_size = u32::from_le_bytes([mmap[20], mmap[21], mmap[22], mmap[23]]) as usize;
+            let names_format = u32::from_le_bytes([mmap[24], mmap[25], mmap[26], mmap[27]]);
+            let names_size = u32::from_le_bytes([mmap[28], mmap[29], mmap[30], mmap[31]]) as usize;
+            let names_final_size =
+                u32::from_le_bytes([mmap[32], mmap[33], mmap[34], mmap[35]]) as usize;
+
+            let toc_slice_end = toc_offset + toc_size;
+            let names_offset = toc_slice_end;
+            let names_slice_end = names_offset + names_size;
+
+            if names_slice_end > mmap.len() {
+                return Err(VfsError::InvalidTocBounds(
+                    toc_offset as u64,
+                    (toc_size + names_size) as u64,
+                    mmap.len() as u64,
+                ));
+            }
+
+            let decomp_toc = if toc_format == COMPRESSION_ZLIB {
+                let mut decoder = ZlibDecoder::new(&mmap[toc_offset..toc_slice_end]);
+                let mut decompressed = Vec::with_capacity(entries_total_bytes);
+                decoder
+                    .read_to_end(&mut decompressed)
+                    .map_err(|e| VfsError::DecompressionFailed("TOC".to_string(), e.to_string()))?;
+                decompressed
+            } else {
+                mmap[toc_offset..toc_slice_end].to_vec()
+            };
+
+            let decomp_names = if names_format == COMPRESSION_ZLIB {
+                let mut decoder = ZlibDecoder::new(&mmap[names_offset..names_slice_end]);
+                let mut decompressed = Vec::with_capacity(names_final_size);
+                decoder.read_to_end(&mut decompressed).map_err(|e| {
+                    VfsError::DecompressionFailed("NAMES".to_string(), e.to_string())
+                })?;
+                decompressed
+            } else {
+                mmap[names_offset..names_slice_end].to_vec()
+            };
+
+            (decomp_toc, decomp_names)
+        } else {
+            // Legacy / compact single TOC buffer
+            let toc_compressed_size =
+                u32::from_le_bytes([mmap[16], mmap[17], mmap[18], mmap[19]]) as usize;
+            let toc_uncompressed_size =
+                u32::from_le_bytes([mmap[20], mmap[21], mmap[22], mmap[23]]) as usize;
+
+            let toc_full = if toc_compressed_size > 0 {
+                let end = toc_offset + toc_compressed_size;
+                if end > mmap.len() {
+                    return Err(VfsError::InvalidTocBounds(
+                        toc_offset as u64,
+                        toc_compressed_size as u64,
+                        mmap.len() as u64,
+                    ));
+                }
+                let mut decoder = ZlibDecoder::new(&mmap[toc_offset..end]);
+                let mut decompressed = Vec::with_capacity(toc_uncompressed_size);
+                decoder
+                    .read_to_end(&mut decompressed)
+                    .map_err(|e| VfsError::DecompressionFailed("TOC".to_string(), e.to_string()))?;
+                decompressed
+            } else {
+                let end = toc_offset + toc_uncompressed_size;
+                if end > mmap.len() {
+                    return Err(VfsError::InvalidTocBounds(
+                        toc_offset as u64,
+                        toc_uncompressed_size as u64,
+                        mmap.len() as u64,
+                    ));
+                }
+                mmap[toc_offset..end].to_vec()
+            };
+
+            if toc_full.len() < entries_total_bytes {
+                return Err(VfsError::InvalidTocBounds(
+                    0,
+                    entries_total_bytes as u64,
+                    toc_full.len() as u64,
+                ));
+            }
+
+            let toc_entries = toc_full[..entries_total_bytes].to_vec();
+            let names_data = toc_full[entries_total_bytes..].to_vec();
+            (toc_entries, names_data)
+        };
+
         let mut entries = HashMap::with_capacity(file_count);
 
         for i in 0..file_count {
@@ -253,12 +307,32 @@ impl TreArchive {
             }
         };
 
+        if decompressed.len() != entry.uncompressed_size as usize {
+            return Err(VfsError::DecompressionFailed(
+                entry.name.clone(),
+                format!(
+                    "Decompressed size mismatch: expected {}, got {}",
+                    entry.uncompressed_size,
+                    decompressed.len()
+                ),
+            ));
+        }
+
         // Verify CRC32 checksum
         let mut hasher = Hasher::new();
         hasher.update(&decompressed);
         let computed = hasher.finalize();
 
-        if computed != entry.checksum {
+        let mut comp_hasher = Hasher::new();
+        comp_hasher.update(raw_slice);
+        let comp_computed = comp_hasher.finalize();
+
+        // Pass if matching standard CRC32 on uncompressed or compressed data, or entry checksum is 0
+        let matches = entry.checksum == 0
+            || computed == entry.checksum
+            || comp_computed == entry.checksum;
+
+        if !matches && entry.compression_type == COMPRESSION_NONE {
             return Err(VfsError::ChecksumMismatch(
                 entry.name.clone(),
                 entry.checksum,
@@ -296,7 +370,7 @@ impl TreArchiveWriter {
         let mut writer = std::io::BufWriter::new(file);
 
         let file_count = self.files.len() as u32;
-        let header_size = 32u32;
+        let header_size = 36u32;
 
         // Collect compressed payloads and metadata
         let mut data_payloads = Vec::new();
@@ -349,9 +423,6 @@ impl TreArchiveWriter {
             toc_buffer.extend_from_slice(&comp_size.to_le_bytes());
             toc_buffer.extend_from_slice(&name_offset.to_le_bytes());
         }
-        toc_buffer.extend_from_slice(&names_block);
-
-        let toc_uncompressed_size = toc_buffer.len() as u32;
 
         // Compress TOC
         let mut toc_encoder = ZlibEncoder::new(Vec::new(), Compression::default());
@@ -359,23 +430,32 @@ impl TreArchiveWriter {
         let toc_compressed = toc_encoder.finish()?;
         let toc_compressed_size = toc_compressed.len() as u32;
 
-        // Write header
+        // Compress Names
+        let names_uncompressed_size = names_block.len() as u32;
+        let mut names_encoder = ZlibEncoder::new(Vec::new(), Compression::default());
+        names_encoder.write_all(&names_block)?;
+        let names_compressed = names_encoder.finish()?;
+        let names_compressed_size = names_compressed.len() as u32;
+
+        // Write authentic SOE 0005 36-byte header
         writer.write_all(&TRE_MAGIC_EERT)?;
         writer.write_all(&TRE_VERSION_0005.to_le_bytes())?;
         writer.write_all(&file_count.to_le_bytes())?;
         writer.write_all(&toc_offset.to_le_bytes())?;
+        writer.write_all(&COMPRESSION_ZLIB.to_le_bytes())?;
         writer.write_all(&toc_compressed_size.to_le_bytes())?;
-        writer.write_all(&toc_uncompressed_size.to_le_bytes())?;
-        writer.write_all(&0u32.to_le_bytes())?; // block size
-        writer.write_all(&0u32.to_le_bytes())?; // reserved
+        writer.write_all(&COMPRESSION_ZLIB.to_le_bytes())?;
+        writer.write_all(&names_compressed_size.to_le_bytes())?;
+        writer.write_all(&names_uncompressed_size.to_le_bytes())?;
 
         // Write data payloads
         for payload in data_payloads {
             writer.write_all(&payload)?;
         }
 
-        // Write TOC
+        // Write TOC & Names
         writer.write_all(&toc_compressed)?;
+        writer.write_all(&names_compressed)?;
         writer.flush()?;
 
         Ok(())

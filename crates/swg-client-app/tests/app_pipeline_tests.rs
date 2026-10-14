@@ -94,3 +94,27 @@ fn test_client_character_skins_and_hud_pipeline() {
     assert_eq!(app.ham.action.wound, 100);
     assert!(stats.ui_vertices_count > 10);
 }
+
+#[test]
+fn test_retail_tre_ingestion_and_dds_decoding() {
+    let tre_path = std::path::Path::new("../../../downloads/tre_test/SWG_Files/default_patch.tre");
+    if !tre_path.exists() {
+        println!("Skipping retail TRE test: archive not present");
+        return;
+    }
+
+    let archive = swg_client_vfs::TreArchive::open(tre_path).expect("Failed to open retail TRE");
+    let entry = archive.get_entry("texture/defaultshader.dds").expect("Entry not found");
+    let raw_dds = archive.read_entry(entry).expect("Failed to read DDS file");
+
+    let image =
+        swg_client_render::dds::DdsImage::parse(&raw_dds).expect("Failed to parse DDS image");
+    assert_eq!(image.width, 128);
+    assert_eq!(image.height, 128);
+    assert_eq!(image.format, swg_client_render::dds::DdsFormat::Dxt3);
+    assert_eq!(image.mipmap_count, 8);
+
+    // Decompress top mip level to RGBA8
+    let rgba = image.decode_to_rgba8().expect("Failed to decompress DXT3 to RGBA8");
+    assert_eq!(rgba.len(), 128 * 128 * 4);
+}

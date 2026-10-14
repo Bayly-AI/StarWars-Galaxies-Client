@@ -93,3 +93,23 @@ async fn test_async_vfs_parallel_streaming() {
         assert_eq!(data, Bytes::from(expected));
     }
 }
+
+#[test]
+fn test_retail_tre_archive_extraction() {
+    let tre_path = std::path::Path::new("../../../downloads/tre_test/SWG_Files/default_patch.tre");
+    if !tre_path.exists() {
+        println!("Skipping retail TRE test: archive not present at {:?}", tre_path);
+        return;
+    }
+
+    let archive = swg_client_vfs::TreArchive::open(tre_path).expect("Failed to open retail TRE");
+    assert_eq!(archive.file_count(), 3);
+    assert!(archive.contains("texture/defaultshader.dds"));
+    assert!(archive.contains("texture/defaultcubemap.dds"));
+    assert!(archive.contains("texture/defaulttexture.dds"));
+
+    let entry = archive.get_entry("texture/defaultshader.dds").expect("Entry not found");
+    let data = archive.read_entry(entry).expect("Failed to read DDS entry");
+    assert_eq!(data.len(), 22000);
+    assert_eq!(&data[0..4], b"DDS ");
+}
