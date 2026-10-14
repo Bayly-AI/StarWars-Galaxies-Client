@@ -2013,8 +2013,10 @@ dependencies = [
 name = "swg-client-audio"
 version = "0.1.0"
 dependencies = [
+ "bytes",
  "glam",
  "serde",
+ "swg-client-vfs",
  "tempfile",
  "thiserror 2.0.21",
  "tracing",

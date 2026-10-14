@@ -90,6 +90,10 @@ fn test_client_character_skins_and_hud_pipeline() {
 
     let stats = app.step_frame();
     assert_eq!(stats.active_music_theme, ThemeType::BossFight);
+    assert_eq!(
+        stats.active_music_track,
+        "music/mus_player_v_player_b_lp.mp3"
+    );
     assert_eq!(app.ham.health.current, 900);
     assert_eq!(app.ham.action.wound, 100);
     assert!(stats.ui_vertices_count > 10);
@@ -117,4 +121,48 @@ fn test_retail_tre_ingestion_and_dds_decoding() {
     // Decompress top mip level to RGBA8
     let rgba = image.decode_to_rgba8().expect("Failed to decompress DXT3 to RGBA8");
     assert_eq!(rgba.len(), 128 * 128 * 4);
+}
+
+#[test]
+fn test_client_retail_audio_and_soundtrack_pipeline() {
+    let tre_path = std::path::Path::new("../../../downloads/tre_test/SWG_Files/data_sample_03.tre");
+    if !tre_path.exists() {
+        println!("Skipping retail audio pipeline test: archive not present");
+        return;
+    }
+
+    let mut config = ClientConfig::default();
+    config.headless = true;
+    config.asset_paths = vec![std::path::PathBuf::from(
+        "../../../downloads/tre_test/SWG_Files",
+    )];
+
+    let mut app = SwgClientApp::new(config);
+    let mounted = app.initialize_vfs().expect("Failed to initialize VFS");
+    assert!(mounted > 0);
+
+    // Read blaster fire sample via client VFS
+    let blaster_bytes = app
+        .vfs
+        .read_file("sample/wep_blaster_fire_2.wav")
+        .expect("Blaster WAV not found in client VFS");
+    let clip = std::sync::Arc::new(
+        swg_client_audio::WavClip::parse(&blaster_bytes).expect("Failed to parse blaster WAV"),
+    );
+
+    // Play 3D blaster sound in client mixer
+    let emitter = swg_client_audio::AudioEmitter::new(
+        101,
+        glam::Vec3::new(10.0, 0.0, 0.0),
+        5.0,
+        150.0,
+    );
+    app.mixer.play_3d(clip, emitter, 1.0, false);
+
+    let stats = app.step_frame();
+    assert_eq!(stats.audio_active_voices, 1);
+    assert_eq!(
+        stats.active_music_track,
+        "music/mus_theme_corellia.mp3"
+    );
 }

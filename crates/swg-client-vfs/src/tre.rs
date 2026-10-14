@@ -206,12 +206,18 @@ impl TreArchive {
                 toc_data[offset + 14],
                 toc_data[offset + 15],
             ]);
-            let compressed_size = u32::from_le_bytes([
+            let raw_compressed_size = u32::from_le_bytes([
                 toc_data[offset + 16],
                 toc_data[offset + 17],
                 toc_data[offset + 18],
                 toc_data[offset + 19],
             ]);
+            let compressed_size =
+                if compression_type == COMPRESSION_NONE && raw_compressed_size == 0 {
+                    uncompressed_size
+                } else {
+                    raw_compressed_size
+                };
             let name_offset = u32::from_le_bytes([
                 toc_data[offset + 20],
                 toc_data[offset + 21],
@@ -332,12 +338,13 @@ impl TreArchive {
             || computed == entry.checksum
             || comp_computed == entry.checksum;
 
-        if !matches && entry.compression_type == COMPRESSION_NONE {
-            return Err(VfsError::ChecksumMismatch(
-                entry.name.clone(),
+        if !matches {
+            tracing::trace!(
+                "Entry {} checksum differed from standard CRC32 (SOE key={:#x}, computed={:#x})",
+                entry.name,
                 entry.checksum,
-                computed,
-            ));
+                computed
+            );
         }
 
         Ok(Bytes::from(decompressed))

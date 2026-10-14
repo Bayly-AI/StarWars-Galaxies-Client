@@ -72,6 +72,7 @@ impl SurroundGains {
     }
 }
 
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq)]
 pub struct SpatialAudioEvaluator;
 
 impl SpatialAudioEvaluator {

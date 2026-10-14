@@ -6,7 +6,7 @@ use serde::{Deserialize, Serialize};
 use std::time::Instant;
 use thiserror::Error;
 
-use swg_client_audio::{DynamicMusicDirector, ThemeType};
+use swg_client_audio::{AudioListener, AudioMixer, DynamicMusicDirector, ThemeType};
 use swg_client_customization::{CharacterAppearance, PaletteLibrary};
 use swg_client_render::TerrainMaterialPalette;
 use swg_client_sync::{InputCommand, MovementPredictor, PlayerPhysicsConfig, PlayerPhysicsState};
@@ -33,6 +33,8 @@ pub struct FrameStats {
     pub terrain_altitude: f32,
     pub ui_vertices_count: usize,
     pub active_music_theme: ThemeType,
+    pub active_music_track: &'static str,
+    pub audio_active_voices: usize,
 }
 
 /// The integrated modern 64-bit Star Wars Galaxies Client Application.
@@ -48,6 +50,7 @@ pub struct SwgClientApp {
     pub radar: RadarMinimap,
     pub button_bar: ButtonBar,
     pub music: DynamicMusicDirector,
+    pub mixer: AudioMixer,
     pub predictor: MovementPredictor,
     pub scene: SpatialSceneGraph,
     pub ui_scaler: ResolutionScaler,
@@ -92,6 +95,7 @@ impl SwgClientApp {
             radar,
             button_bar,
             music,
+            mixer: AudioMixer::new(44100),
             predictor,
             scene,
             ui_scaler,
@@ -140,8 +144,12 @@ impl SwgClientApp {
         self.radar.center_pos = adjusted_pos;
         self.radar.heading = predicted_state.yaw;
 
-        // 2. Advance dynamic soundtrack
+        // 2. Advance dynamic soundtrack and audio mixer listener
         self.music.tick(dt);
+        let forward = Vec3::new(-predicted_state.yaw.sin(), 0.0, -predicted_state.yaw.cos());
+        self.mixer.set_listener(AudioListener::new(adjusted_pos, forward, Vec3::Y));
+        let num_frames = (dt * 44100.0) as usize;
+        let _ = self.mixer.render_stereo_frames(num_frames.clamp(64, 4096));
 
         // 3. Assemble Pre-CU HUD vector mesh
         self.ui_mesh.clear();
@@ -182,6 +190,8 @@ impl SwgClientApp {
             terrain_altitude: alt,
             ui_vertices_count: self.ui_mesh.vertices.len(),
             active_music_theme: self.music.current_theme,
+            active_music_track: self.music.current_track_path(),
+            audio_active_voices: self.mixer.active_voice_count(),
         }
     }
 }

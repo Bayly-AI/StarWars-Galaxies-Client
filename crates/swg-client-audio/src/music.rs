@@ -14,6 +14,21 @@ pub enum ThemeType {
     DefeatStinger,
 }
 
+impl ThemeType {
+    /// Resolves authentic retail SWG MP3 soundtrack path for this theme.
+    #[must_use]
+    pub fn default_track_path(&self) -> &'static str {
+        match self {
+            Self::PlanetaryAmbient => "music/mus_theme_corellia.mp3",
+            Self::CantinaBand => "music/mus_max_rebo_song_1.mp3",
+            Self::CombatSkirmish => "music/mus_combat_b_lp.mp3",
+            Self::BossFight => "music/mus_player_v_player_b_lp.mp3",
+            Self::VictoryFanfare => "music/mus_combat_b_vict.mp3",
+            Self::DefeatStinger => "music/mus_player_v_npc_c_death.mp3",
+        }
+    }
+}
+
 /// Dynamic soundtrack director managing adaptive cross-fading between ambient and combat themes.
 #[derive(Debug, Clone)]
 pub struct DynamicMusicDirector {
@@ -138,6 +153,12 @@ impl DynamicMusicDirector {
     #[must_use]
     pub fn get_volume(&self, theme: ThemeType) -> f32 {
         self.volumes.get(&theme).copied().unwrap_or(0.0)
+    }
+
+    /// Returns the authentic retail MP3 soundtrack asset path currently playing.
+    #[must_use]
+    pub fn current_track_path(&self) -> &'static str {
+        self.current_theme.default_track_path()
     }
 }
 
