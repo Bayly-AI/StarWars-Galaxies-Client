@@ -1,0 +1,16 @@
+[package]
+name = "swg-client-mesh"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+glam = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+bytemuck = { version = "1.25", features = ["derive"] }
+tracing = { workspace = true }
+swg-client-iff = { path = "../swg-client-iff" }
+swg-client-core = { path = "../swg-client-core" }
