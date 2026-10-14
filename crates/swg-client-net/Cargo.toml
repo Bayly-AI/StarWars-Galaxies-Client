@@ -1,0 +1,17 @@
+[package]
+name = "swg-client-net"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+bytes = { workspace = true }
+thiserror = { workspace = true }
+serde = { workspace = true }
+tokio = { workspace = true }
+crc32fast = { workspace = true }
+flate2 = { workspace = true }
+fastrand = { workspace = true }
+tracing = { workspace = true }
