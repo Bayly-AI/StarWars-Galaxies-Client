@@ -9,6 +9,7 @@ members = [
     "crates/swg-client-mesh",
     "crates/swg-client-anim",
     "crates/swg-client-world",
+    "crates/swg-client-interior",
 ]
 resolver = "2"
 

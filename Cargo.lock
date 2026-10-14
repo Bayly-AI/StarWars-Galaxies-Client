@@ -1992,6 +1992,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "swg-client-interior"
+version = "0.1.0"
+dependencies = [
+ "glam",
+ "serde",
+ "swg-client-world",
+ "tempfile",
+ "thiserror 2.0.21",
+ "tracing",
+]
+
+[[package]]
 name = "swg-client-mesh"
 version = "0.1.0"
 dependencies = [
