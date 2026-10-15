@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: swg-client
+  namespace: swg-client
+  labels:
+    app.kubernetes.io/name: swg-client
+    app.kubernetes.io/managed-by: hath0r
+    fargate: "true"
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: swg-client
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: swg-client
+        fargate: "true"
+    spec:
+      serviceAccountName: swg-client-sa
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        runAsGroup: 10001
+        fsGroup: 10001
+      containers:
+        - name: swg-client
+          image: 711387127111.dkr.ecr.us-east-1.amazonaws.com/swg-client@sha256:3903f1cb1c5fd2e0a802c19c241455fd8bdd3b92a9b0ca77de77c15bc7ad9f03
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: "250m"
+              memory: "512Mi"
+            limits:
+              cpu: "500m"
+              memory: "1Gi"
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+            - name: tmp-volume
+              mountPath: /tmp
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8080
+            initialDelaySeconds: 15
+            periodSeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+      volumes:
+        - name: tmp-volume
+          emptyDir: {}

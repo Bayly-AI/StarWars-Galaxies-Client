@@ -1,0 +1,6 @@
+target/
+.git/
+.hath0r/
+.pytest_cache/
+.ruff_cache/
+*.log
