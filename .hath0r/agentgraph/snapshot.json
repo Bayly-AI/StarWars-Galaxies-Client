@@ -1,7 +1,7 @@
 {
   "schema_version": "hath0r.agentgraph/1",
   "graph_id": "agentgraph-Client",
-  "timestamp": "2026-10-14T11:41:31.380988+00:00",
+  "timestamp": "2026-10-16T15:24:49.886550+00:00",
   "nodes": [
     {
       "id": "doc:agents-root",
@@ -24,6 +24,18 @@
       "properties": {
         "path": "contracts/AGENTS.md",
         "subsystem": "contracts"
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:agents-tests",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "AGENTS.md (tests)",
+      "content": "# Tests Subsystem - AGENTS Context\n\n> This file contains hyper-localized context for Tests Subsystem.\n\n## Roles and Focus\n- Localized focus rules go here.\n",
+      "properties": {
+        "path": "tests/AGENTS.md",
+        "subsystem": "tests"
       },
       "is_current": true
     },
@@ -56,10 +68,88 @@
       "plane": "rules",
       "type": "rule_policy",
       "label": "Rule rules",
+      "content": "# Contracts Subsystem - Local Rules\n\n> Specific rules and constraints for the Contracts Subsystem module.\n\n## Constraints\n- \n",
+      "properties": {
+        "path": "contracts/rules.md",
+        "priority": 3,
+        "restricted_actions": []
+      },
+      "is_current": true
+    },
+    {
+      "id": "rule:rules",
+      "plane": "rules",
+      "type": "rule_policy",
+      "label": "Rule rules",
+      "content": "# Tests Subsystem - Local Rules\n\n> Specific rules and constraints for the Tests Subsystem module.\n\n## Constraints\n- \n",
+      "properties": {
+        "path": "tests/rules.md",
+        "priority": 3,
+        "restricted_actions": []
+      },
+      "is_current": true
+    },
+    {
+      "id": "rule:rules",
+      "plane": "rules",
+      "type": "rule_policy",
+      "label": "Rule rules",
+      "content": "# Docs Subsystem - Local Rules\n\n> Specific rules and constraints for the Docs Subsystem module.\n\n## Constraints\n- \n",
+      "properties": {
+        "path": "docs/rules.md",
+        "priority": 3,
+        "restricted_actions": []
+      },
+      "is_current": true
+    },
+    {
+      "id": "rule:rules",
+      "plane": "rules",
+      "type": "rule_policy",
+      "label": "Rule rules",
       "content": "# Cfg Subsystem - Local Rules\n\n> Specific rules and constraints for the Cfg Subsystem module.\n\n## Constraints\n- \n",
       "properties": {
         "path": "cfg/rules.md",
         "priority": 3,
+        "restricted_actions": []
+      },
+      "is_current": true
+    },
+    {
+      "id": "rule:cr-bai-001",
+      "plane": "rules",
+      "type": "rule_policy",
+      "label": "Rule CR-BAI-001",
+      "content": "Governance policy rule CR-BAI-001 referenced in AGENTS.md",
+      "properties": {
+        "rule_code": "CR-BAI-001",
+        "priority": 4,
+        "restricted_actions": []
+      },
+      "is_current": true
+    },
+    {
+      "id": "rule:cr-cli-entry-001",
+      "plane": "rules",
+      "type": "rule_policy",
+      "label": "Rule CR-CLI-ENTRY-001",
+      "content": "Governance policy rule CR-CLI-ENTRY-001 referenced in AGENTS.md",
+      "properties": {
+        "rule_code": "CR-CLI-ENTRY-001",
+        "priority": 4,
+        "restricted_actions": []
+      },
+      "is_current": true
+    },
+    {
+      "id": "rule:cr-branch-gov-001",
+      "plane": "rules",
+      "type": "rule_policy",
+      "label": "Rule CR-BRANCH-GOV-001",
+      "content": "Governance policy rule CR-BRANCH-GOV-001 referenced in AGENTS.md",
+      "properties": {
+        "rule_code": "CR-BRANCH-GOV-001",
+        "priority": 4,
         "restricted_actions": []
       },
       "is_current": true
@@ -117,6 +207,58 @@
       "is_current": true
     },
     {
+      "id": "doc:docs__governance__playbooks__playbook-issue-07-client-mesh_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 07 Client Mesh",
+      "content": "# Playbook: Issue 07 — Mesh & Models: 3D Rigid Mesh (.msh) Loading and PBR Material Pipeline (`swg-client-mesh`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#7  \n> **Branch:** `enhancement/7-mesh-msh-pbr-pipeline`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement 3D model asset loading and PBR material synthesis in `crates/swg-client-mesh`:\n\n1. **Rigid Mesh .msh Parser & Builder (`msh.rs`):**\n   - Parse authentic SWG `FORM MSH_` IFF hierarchies.\n   - Extract vertex buffer streams (positions `f32x3`, normals `f32x3`, tangents `f32x4`, UV coordinates `f32x2`).\n   - Extract index buffers (`INDX`) and multi-material sub-mesh partitions.\n   - Bounding sphere and AABB calculation for camera frustum culling.\n\n2. **Legacy to Modern PBR Material Synthesizer (`material.rs`):**\n   - Synthesize modern PBR material textures (Albedo, Roughness, Metallic, Normal, Emissive).\n   - Convert legacy gloss/specular maps to roughness ($R = \\sqrt{1.0 - \\text{gloss}}$).\n   - Emissive radiance mapping for lightsabers, blaster bolts, and engine exhausts.\n\n3. **Clustered Forward+ PBR Mesh Shading (`lighting.rs`):**\n   - Integration with `swg-client-core` clustered lig",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-07-client-mesh.md",
+        "category": "playbooks",
+        "size_bytes": 1777
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-01-client-core_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 01 Client Core",
+      "content": "# Playbook: Issue 01 — Client Core: Initialize Client Workspace, winit + wgpu / Bevy Rendering Pipeline (`swg-client-core`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#1  \n> **Branch:** `enhancement/1-client-core-workspace-wgpu`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nSetup the Strategy B 64-bit modern client workspace and core substrate in `crates/swg-client-core`:\n\n1. **Workspace & Toolchain Initialization:**\n   - Define root `Cargo.toml` with workspace members and pinned shared dependencies (`glam`, `bevy_ecs`, `wgpu`, `winit`, `thiserror`, `tokio`, `serde`).\n   - Configure SonarCloud properties and quality gates.\n\n2. **Windowing, High-DPI & Display Scaling (`window.rs`):**\n   - High-DPI resolution scaling calculation mapping logical coordinates to physical framebuffers without blurring.\n   - Support for high-refresh display presentation modes (`Mailbox` / `Immediate` for 144Hz+ unthrottled rendering, `Fifo` for V-Sync).\n   - Configurable window modes (Windowed, Borderless Fullscreen, Exclusive Fullscreen).\n\n3. **Graphics Device Abstraction & Clustered Forward+ Pipeline (`render.rs`, `cluster.rs`):**\n   - Headless and hardware-accelerat",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-01-client-core.md",
+        "category": "playbooks",
+        "size_bytes": 2269
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-08-client-animation_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 08 Client Animation",
+      "content": "# Playbook: Issue 08 — Animation: Skeletal Rigging (.skm, .sat), Bone Transforms, and .ans Animation Blender (`swg-client-anim`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#8  \n> **Branch:** `enhancement/8-skeletal-rigging-animation`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement character skeletal animation and modular armor attachment in `crates/swg-client-anim`:\n\n1. **Skeletal Mesh .skm & Skeleton Rigging (`skm.rs`):**\n   - Parse and serialize SWG skeletal mesh format (`SKMG`/`SKTM`) with IFF chunking.\n   - Vertex streams with up to 4 bone influences (`[u16; 4]` indices, `[f32; 4]` weights with unit normalization).\n   - Joint hierarchy with bone parent-child indices, local rest pose, and inverse bind pose matrices.\n   - Hardpoint attachment locators for weapon sockets and accessory positioning.\n\n2. **Skeletal Appearance Template .sat (`sat.rs`):**\n   - Parse modular attachment tables (`STAT`) defining customization slots (head, chest, legs, boots, gloves, back).\n   - Link modular rigid and skinned armor meshes to shared base skeleton bones.\n\n3. **Keyframe Animation .ans & Pose Evaluation (`ans.rs`):**\n   - Parse `.ans` animation clip",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-08-client-animation.md",
+        "category": "playbooks",
+        "size_bytes": 2432
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-05-client-terrain_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 05 Client Terrain",
+      "content": "# Playbook: Issue 05 — Terrain: Procedural .trn Height Evaluation & Real-Time GPU Mesh Chunk Tessellation (`swg-client-terrain`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#5  \n> **Branch:** `enhancement/5-terrain-trn-height-evaluation`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement procedural planetary terrain generation and LOD mesh tessellation in `crates/swg-client-terrain`:\n\n1. **Procedural .trn Height Generator & Surface Normal Evaluation (`height.rs`):**\n   - Multi-fractal procedural height evaluation $H(x, z)$ with configurable octaves, frequency, lacunarity, and persistence.\n   - Boundary shapes (circles, rectangles) and height blend filters (flats, canyons, hills).\n   - Analytic / central-difference surface normal calculation yielding smooth PBR shading.\n\n2. **Dynamic 64m x 64m Chunk Tessellation (`chunk.rs`):**\n   - Grid chunk generation centered dynamically around camera position.\n   - Vertex buffer generation: positions `Vec3`, normals `Vec3`, texture coordinates `Vec2`.\n   - Continuous Level of Detail (LOD 0 to LOD 3) index buffer generation.\n\n3. **Crack-Free Edge Stitching & Geomorphing (`lod.rs`):**\n   - T-junction elimi",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-05-client-terrain.md",
+        "category": "playbooks",
+        "size_bytes": 1881
+      },
+      "is_current": true
+    },
+    {
       "id": "doc:docs__governance__playbooks__playbook-coding_md",
       "plane": "knowledge",
       "type": "knowledge_doc",
@@ -126,6 +268,136 @@
         "path": "docs/governance/playbooks/playbook-coding.md",
         "category": "playbooks",
         "size_bytes": 266
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-14-client-audio_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 14 Client Audio",
+      "content": "# Playbook: Issue 14 — Audio: 3D Positional Spatial Audio & Dynamic Planetary Music (`swg-client-audio`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#14  \n> **Branch:** `enhancement/14-spatial-audio-dynamic-music`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement 3D spatial audio positioning and interactive dynamic music in `crates/swg-client-audio`:\n\n1. **3D Audio Listener & Spatial Panning (`listener.rs`, `spatial.rs`):**\n   - 3D listener tracking player camera position, orientation vectors (Forward, Up, Right), and velocity.\n   - Distance attenuation models (Inverse-Square, Linear, Exponential rolloff) with near-distance clamping and maximum audible distance limits.\n   - Vector panning across stereo headphones and modern 7.1 surround sound multi-channel configurations (Left, Right, Center, LFE, Side Surrounds, Rear Surrounds).\n\n2. **Pre-CU Sound Effect Catalog (`sound_bank.rs`):**\n   - Sound categories: Blaster rifle fire, Lightsaber ignition and swings, footsteps by terrain surface type (Sand, Stone, Metal, Grass), starship engines, and ambient planetary wind.\n\n3. **Dynamic Interactive Music Director (`music.rs`):**\n   - Dynamic cross-f",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-14-client-audio.md",
+        "category": "playbooks",
+        "size_bytes": 1984
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-10-client-interiors_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 10 Client Interiors",
+      "content": "# Playbook: Issue 10 — Interiors: CellObject Indoor Rendering, Portals, and Occlusion Culling (`swg-client-interior`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#10  \n> **Branch:** `enhancement/10-interior-cell-portal-culling`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement interior building rendering and portal-based occlusion culling in `crates/swg-client-interior`:\n\n1. **CellObject Coordinate Spaces (`cell.rs`):**\n   - Support hierarchical cell coordinate systems within buildings (`building_id`, `cell_id`).\n   - Bidirectional matrix transformations between local cell space and global planetary coordinates.\n   - Cell bounding boxes and indoor room content containment.\n\n2. **Doorways & Portals (`portal.rs`):**\n   - Convex planar doorway polygons connecting adjoining cells or linking interior to outdoor terrain (`cell_id: 0`).\n   - Door states (`Open`, `Closed`, `Locked`) controlling visibility and pass-through.\n   - Portal frustum clipping: generating reduced camera clipping frustums through doorway vertices.\n\n3. **Portal Occlusion Culler (`occlusion.rs`):**\n   - Graph traversal of interconnected rooms via visible portal frustums.\n   - ",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-10-client-interiors.md",
+        "category": "playbooks",
+        "size_bytes": 2258
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-12-client-radial-menu_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 12 Client Radial Menu",
+      "content": "# Playbook: Issue 12 — UI Interaction: Context-Sensitive Dynamic Radial Menu and Cursor Interaction (`swg-client-ui`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#12  \n> **Branch:** `enhancement/12-context-sensitive-radial-menu`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement the classic Pre-CU SWG context-sensitive radial menu and 3D world cursor picking in `crates/swg-client-ui`:\n\n1. **3D Mouse Cursor Raycasting (`cursor_ray.rs`):**\n   - Unproject screen-space mouse coordinates $[0, W] \\times [0, H]$ through inverse View-Projection matrix into a normalized 3D world ray (`Ray3D`).\n   - Ray-sphere and ray-AABB intersection tests for interactive targeting of terrain objects, buildings, creatures, and players.\n   - Closest-hit sorting with distance evaluation.\n\n2. **Context-Sensitive Capability Evaluator (`interaction.rs`):**\n   - Dynamically populates radial options based on targeted entity class:\n     - `Corpse`: Loot, Harvest (Meat, Hide, Bone), Examine.\n     - `Container`: Open, Pick Up, Examine.\n     - `Player`: Trade, Invite to Group, Follow, Duel, Examine.\n     - `ResourceNode`: Sample, Survey, Examine.\n     - `Terminal`: Use, Examin",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-12-client-radial-menu.md",
+        "category": "playbooks",
+        "size_bytes": 2230
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-17-client-performance_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 17 Client Performance",
+      "content": "# Playbook: Issue 17 — Performance & Cross-Platform: GPU Compute Occlusion Culling, LOD Geomorphing & Packaging (`swg-client-render`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#17  \n> **Branch:** `enhancement/17-gpu-culling-cross-platform`  \n> **Status:** Implementation Playbook  \n> **Related Files:**\n> - [gpu_culling.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-render/src/gpu_culling.rs)\n> - [geomorph.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-render/src/geomorph.rs)\n> - [platform.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-render/src/platform.rs)\n> - [gpu_culling_tests.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-render/tests/gpu_culling_tests.rs)\n\n---\n\n## 1. Objectives & Scope\n\nOptimize and package the client across operating systems in `crates/swg-client-render`:\n\n1. **GPU Compute Shader Occlusion & Frustum Culling (`gpu_culling.rs`):**\n   - High-throughput parallel WGSL compute shader (`CULLING_COMPUTE_WGSL`) evaluating frustum plane tests and Hi-Z depth occlusion.\n   - Indirect draw buffer compaction (`wgpu::util::DrawIndirectArgs`",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-17-client-performance.md",
+        "category": "playbooks",
+        "size_bytes": 2922
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-13-client-containers_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 13 Client Containers",
+      "content": "# Playbook: Issue 13 — UI Containers: Drag-and-Drop Grid Inventory, Backpacks, and Container Windows (`swg-client-ui`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#13  \n> **Branch:** `enhancement/13-drag-drop-grid-inventory`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement Pre-CU grid inventory, nested backpacks, and drag-and-drop item movement in `crates/swg-client-ui`:\n\n1. **Inventory & Container Models (`container.rs`):**\n   - Hierarchical container structures: main player inventory, nested backpacks, world storage chests, factory hoppers, and corpse loot containers.\n   - `Item` metadata: Network ID, template path, volume, stack size, and equipment slot tags.\n   - Capacity tracking and volume validation ($V_{\\text{total}} \\le V_{\\text{max}}$).\n\n2. **Drag-and-Drop Item Movement (`drag_drop.rs`):**\n   - Interactive drag operations: picking up item stacks or partial stacks ($N_{\\text{split}} < N_{\\text{current}}$).\n   - Drop targets: grid slots, nested sub-containers (backpacks), paperdoll equipment sockets, and world terrain (ground drops).\n   - Produces authoritative client-to-server move packet payloads (`ServerMovePacket`) dispatching ",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-13-client-containers.md",
+        "category": "playbooks",
+        "size_bytes": 1990
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-04-client-net_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 04 Client Net",
+      "content": "# Playbook: Issue 04 — Networking: Client-Side SOE UDP Network Stack, Connection Session & Handshake (`swg-client-net`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#4  \n> **Branch:** `enhancement/4-client-soe-network-stack`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement the client-side network protocol stack in `crates/swg-client-net`:\n\n1. **SOE Protocol Layer & Cryptography (`soe.rs`):**\n   - Packet framing, CRC32 appending, XOR/seed encryption, and zlib packet decompression.\n   - Core SOE packet types: `SessionRequest` (0x01), `SessionResponse` (0x02), `MultiPacket` (0x03), `DataChannel` (0x09), `Fragmented` (0x0D), `Ack` (0x15), `Ping` (0x05), `Disconnect` (0x0A).\n   - Sliding-window sequence tracking, cumulative ACK generation, and fragment reassembler.\n\n2. **Asynchronous UDP Client Connection (`connection.rs`):**\n   - Asynchronous UDP transport using `tokio::net::UdpSocket`.\n   - Heartbeat tick, retransmission timeout (RTO) queue, and packet sequencer.\n\n3. **Client Network Session State Machine (`session.rs`):**\n   - States: `Disconnected`, `Connecting`, `Connected`, `Authenticated`, `ZoneTransitioning`, `InScene`.\n   - Login handsh",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-04-client-net.md",
+        "category": "playbooks",
+        "size_bytes": 1952
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-03-client-iff_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 03 Client Iff",
+      "content": "# Playbook: Issue 03 — Asset Formats: IFF Chunk Hierarchy Parser & STF Localized String Table Reader (`swg-client-iff`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#3  \n> **Branch:** `enhancement/3-iff-chunk-hierarchy-parser-stf`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement core binary asset format parsers in `crates/swg-client-iff`:\n\n1. **Recursive FORM / CHNK IFF Reader & Serializer (`iff.rs`):**\n   - FourCC identifier representation and big-endian size handling.\n   - Zero-allocation slice-based traversal for nested `FORM` containers and leaf chunks (`DATA`, `INFO`, `0000`, etc.).\n   - Cursor-based hierarchical navigator (`IffCursor`) with `enter_form`, `exit_form`, `next_chunk`, and predicate searches.\n   - Bidirectional serializer (`IffWriter`) for asset authoring and test generation.\n\n2. **STF Localized String Table Reader & Lookup Dictionary (`stf.rs`):**\n   - Binary `.stf` parser decoding UTF-16LE localized string values and ASCII string identifiers.\n   - Dual-index lookup table (`StringTable`) enabling both key-based (`@stf_file:string_id`) and integer ID lookups.\n   - `.stf` binary encoder for round-trip testing and localizati",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-03-client-iff.md",
+        "category": "playbooks",
+        "size_bytes": 1696
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-02-client-vfs_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 02 Client Vfs",
+      "content": "# Playbook: Issue 02 — VFS: Memory-Mapped .tre Archive Virtual File System & Priority Cascading Loader (`swg-client-vfs`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#2  \n> **Branch:** `enhancement/2-vfs-tre-memory-mapped-archive`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement high-performance client-side asset streaming in `crates/swg-client-vfs`:\n\n1. **Memory-Mapped .tre Archive Reader (`tre.rs`):**\n   - Memory-map `.tre` archives via `memmap2::Mmap` for instant zero-copy header and TOC ingestion.\n   - Support both compressed (zlib Deflate) and raw uncompressed entry payloads.\n   - CRC32 integrity validation via `crc32fast`.\n   - Complete `.tre` serializer / writer for test asset bundling and validation.\n\n2. **Cascading Patch Priority Virtual File System (`vfs.rs`):**\n   - Hierarchical mount table supporting reverse-patch priority cascading (`patch_14_00.tre` > `patch_00.tre` > `data_sku1_00.tre`).\n   - Case-insensitive normalized path indexing with $O(1)$ lookups.\n   - Mount full archive collections in under 250ms.\n\n3. **Asynchronous Parallel Decompression (`async_loader.rs`):**\n   - Multi-threaded parallel extraction using `tokio` an",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-02-client-vfs.md",
+        "category": "playbooks",
+        "size_bytes": 1818
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-09-client-world_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 09 Client World",
+      "content": "# Playbook: Issue 09 — World Integration: World Snapshot (.ws) Static City Placements & Scene Graph Rendering (`swg-client-world`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#9  \n> **Branch:** `enhancement/9-world-snapshot-city-placement`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement planetary static structure placement, world snapshots, and spatial culling in `crates/swg-client-world`:\n\n1. **World Snapshot .ws Parser & Builder (`ws.rs`):**\n   - Parse authentic SWG `FORM WSNP` hierarchies.\n   - Extract static object nodes with 64-bit Network ID, template identifier / path, world-space transform (`Vec3` position, `Quat` rotation, scale), cell parent ID, and bounding sphere radius.\n   - Fast zero-allocation streaming of thousands of planetary static objects.\n\n2. **Canon City Presets (`canon_cities.rs`):**\n   - Presets for major planetary hubs with authentic retail coordinates:\n     - **Mos Eisley (Tatooine)**: Chalmun's Cantina, Starport, Lucky Despot, Bazaar.\n     - **Theed (Naboo)**: Royal Palace Complex, Theed Starport, Cantina, Bridges.\n     - **Coronet (Corellia)**: Coronet Capitol, Starport, Government district.\n\n3. **Camera Frustu",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-09-client-world.md",
+        "category": "playbooks",
+        "size_bytes": 2386
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-16-client-customization_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 16 Client Customization",
+      "content": "# Playbook: Issue 16 — Character Customization: Species, Morph Sliders & Palette Tinting (`swg-client-customization`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#16  \n> **Branch:** `enhancement/16-character-customization-palettes`  \n> **Status:** Implementation Playbook  \n> **Related Files:**\n> - [species.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-customization/src/species.rs)\n> - [morph.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-customization/src/morph.rs)\n> - [palette.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-customization/src/palette.rs)\n> - [customization_pipeline_tests.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-customization/tests/customization_pipeline_tests.rs)\n\n---\n\n## 1. Objectives & Scope\n\nImplement complete character creation and appearance customization in `crates/swg-client-customization`:\n\n1. **Galactic Species & Gender Profiles (`species.rs`):**\n   - 8 playable species: Human, Trandoshan, Wookiee, Twi'lek, Zabrak, Bothan, Mon Calamari, and Rodian.\n   - Gender support (Male and Female) with species-specific anatomy con",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-16-client-customization.md",
+        "category": "playbooks",
+        "size_bytes": 2615
       },
       "is_current": true
     },
@@ -143,15 +415,80 @@
       "is_current": true
     },
     {
+      "id": "doc:docs__governance__playbooks__playbook-issue-06-client-render-terrain_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 06 Client Render Terrain",
+      "content": "# Playbook: Issue 06 — Terrain Rendering: Multi-Layer Ground Splatting Shader & Flora Clutter (`swg-client-render`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#6  \n> **Branch:** `enhancement/6-terrain-rendering-ground-splatting`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement modern terrain surface rendering and instanced planetary clutter in `crates/swg-client-render`:\n\n1. **Multi-Layer Ground Splatting Pipeline (`splat.rs`, `terrain.wgsl`):**\n   - Multi-texture layer weights computed from terrain surface normal slope angle ($\\cos \\theta = \\vec{N} \\cdot \\vec{U}$) and elevation altitude.\n   - PBR material attribute evaluation: blended diffuse albedo, roughness, normal perturbations, and ambient occlusion.\n   - WGSL forward rendering shader pipeline with bind group layouts for camera uniforms and terrain material textures.\n\n2. **Procedural Flora Clutter Instancing (`clutter.rs`):**\n   - Procedural placement of ground detail instances (desert grass tufts, rocks, shrubs) within camera proximity.\n   - GPU instancing buffer containing transforms and instance IDs.\n   - Distance-attenuated density fading and view frustum culling.\n\n---\n\n## 2. Ac",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-06-client-render-terrain.md",
+        "category": "playbooks",
+        "size_bytes": 1694
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-15-client-prediction_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 15 Client Prediction",
+      "content": "# Playbook: Issue 15 — Netcode & Sync: Movement Prediction, Reconciliation & Remote Interpolation (`swg-client-sync`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#15  \n> **Branch:** `enhancement/15-client-movement-prediction`  \n> **Status:** Implementation Playbook  \n> **Related Files:**\n> - [prediction.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-sync/src/prediction.rs)\n> - [reconciliation.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-sync/src/reconciliation.rs)\n> - [remote_interpolation.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-sync/src/remote_interpolation.rs)\n> - [sync_pipeline_tests.rs](file:///Users/raybayly/Development/BAI/GAMES/SWG/Client/crates/swg-client-sync/tests/sync_pipeline_tests.rs)\n\n---\n\n## 1. Objectives & Scope\n\nImplement high-performance, low-latency multiplayer synchronization in `crates/swg-client-sync`:\n\n1. **Client-Side Movement Prediction (`prediction.rs`):**\n   - High-frequency local input collection (`ClientInput`) with sequence tracking, delta time, directional vectors, yaw/pitch orientation, and sprint states.\n   - Immediate deterministic simula",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-15-client-prediction.md",
+        "category": "playbooks",
+        "size_bytes": 2963
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:docs__governance__playbooks__playbook-issue-11-client-hud_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Playbook Issue 11 Client Hud",
+      "content": "# Playbook: Issue 11 — UI HUD: Pre-CU Authentic HUD: Radar, HAM Bars, Target Status & Macro Button Bar (`swg-client-ui`)\n\n> **Target Issue:** Bayly-AI/StarWars-Galaxies-Client#11  \n> **Branch:** `enhancement/11-pre-cu-hud-radar-ham`  \n> **Status:** Implementation Playbook\n\n---\n\n## 1. Objectives & Scope\n\nImplement the authentic Pre-CU heads-up display (HUD) in vector graphics in `crates/swg-client-ui`:\n\n1. **HAM Status Bars (`ham.rs`):**\n   - Three primary pools: Health (Red), Action (Green), Mind (Blue).\n   - Real-time delta updates for current pool, max capacity, and permanent wounds (black tick notches).\n   - Incapacitation & death triggers when any primary pool drops $\\le 0$.\n\n2. **Planetary Radar Minimap (`radar.rs`):**\n   - Rotating compass radar with heading rotation ($0^\\circ = \\text{North}$).\n   - Target blips (waypoints, friendly players, neutral fauna, hostile enemies, corpses).\n   - Circular radar perimeter edge-clamping for off-radar objectives.\n   - Dynamic zoom levels (128m, 256m, 512m, 1024m).\n\n3. **Target Status Frame (`target_status.rs`):**\n   - Selected target vitals: HAM percentages, target name, posture, and 3D Euclidean distance.\n   - Hostility indicator and fa",
+      "properties": {
+        "path": "docs/governance/playbooks/playbook-issue-11-client-hud.md",
+        "category": "playbooks",
+        "size_bytes": 2267
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:_hath0r__knowledgebase__lessons-learned__share-20261014T114758Z_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Share 20261014T114758Z",
+      "content": "# Knowledge share share-20261014T114758Z\n\n- **Generated:** 2026-10-14T11:47:58.403686+00:00\n- **Repo:** local\n- **PR:** n/a\n\n## Summary\nInitialized StarWars-Galaxies-Client with HATH0R framework alignment, AgentGraph substrate, and Pre-CU Strategy B modern client specs.\n",
+      "properties": {
+        "path": ".hath0r/knowledgebase/lessons-learned/share-20261014T114758Z.md",
+        "category": "lessons-learned",
+        "size_bytes": 271
+      },
+      "is_current": true
+    },
+    {
+      "id": "doc:_hath0r__knowledgebase__lessons-learned__share-20261014T114131Z_md",
+      "plane": "knowledge",
+      "type": "knowledge_doc",
+      "label": "Share 20261014T114131Z",
+      "content": "# Knowledge share share-20261014T114131Z\n\n- **Generated:** 2026-10-14T11:41:31.383385+00:00\n- **Repo:** local\n- **PR:** n/a\n\n## Summary\nUniversal repository onboarding: initialized HATHOR framework and migrated AgentGraph cognitive substrate (knowledge, rules, agents, memory).\n",
+      "properties": {
+        "path": ".hath0r/knowledgebase/lessons-learned/share-20261014T114131Z.md",
+        "category": "lessons-learned",
+        "size_bytes": 278
+      },
+      "is_current": true
+    },
+    {
       "id": "doc:README_md",
       "plane": "knowledge",
       "type": "knowledge_doc",
       "label": "Readme",
-      "content": "# Client\n\n**Enterprise Agentic Application & Microservice**\n\n> Technical Reference: See [TECH_README.md](TECH_README.md) for architecture, subsystem maps, and specifications.\n\n---\n\n## 🌟 Sales & Feature Overview\n\nClient is built on the HATHOR agentic framework, providing:\n\n- 🛡️ **Zero-Trust Governance & Execution**: Hardened boundaries against unauthorized file mutations.\n- 🧠 **Tri-Graph Substrate**: Integrated KnowledgeGraph, ContextGraph, and MemoryGraph for autonomous reasoning.\n- ⚡ **Autonomous Workflows**: Pre-configured bot workflows for CI/CD and hygiene.\n\n---\n\n## Quick Start\n\n```sh\nhath0r doctor\nhath0r factory list\n```\n\n---\n\n## License\n\nApache License 2.0\n",
+      "content": "# StarWars-Galaxies-Client (Client)\n\n**Ground-Up 64-Bit Modern Client for Star Wars Galaxies (Strategy B) & Enterprise Agentic Application**\n\n> Technical Reference: See [TECH_README.md](TECH_README.md) for architecture, subsystem maps, and specifications.\n\n---\n\n## 🌟 Sales & Feature Overview\n\n`StarWars-Galaxies-Client` is a clean-room, native 64-bit cross-platform client designed to replace the legacy 32-bit DirectX 9 client (`SwgClient_r.exe`). Powered by Rust and governed by the HATHOR agentic framework:\n\n- 🎮 **Strategy B Modern Engine**: Native 64-bit engine mounting authentic `.tre` archives via zero-copy memory mapping and procedural `.trn` terrain tessellation.\n- 🎨 **Modern Graphics (`wgpu`)**: Cross-platform Vulkan, Metal, and DirectX 12 rendering with clustered forward lighting and high refresh rate support (144Hz+).\n- 🔊 **3D Positional Audio (`kira`)**: Dynamic cantina performances, ambient planet soundscapes, and combat audio.\n- 🛡️ **Zero-Trust Governance & Execution**: Hardened boundaries against unauthorized file mutations and automated quality gates.\n- 🧠 **Tri-Graph Substrate**: Integrated KnowledgeGraph, ContextGraph, and MemoryGraph for autonomous reasoning.\n- ⚡ **Aut",
       "properties": {
         "path": "README.md",
         "category": "root",
-        "size_bytes": 684
+        "size_bytes": 4723
       },
       "is_current": true
     },
@@ -160,11 +497,11 @@
       "plane": "knowledge",
       "type": "knowledge_doc",
       "label": "Tech Readme",
-      "content": "# Technical Architecture — Client\n\nThis document provides the definitive technical specification and subsystem map.\n\n## Architecture Map\n\n```text\nAgent ──► hath0r CLI ──► Tri-Graph Substrate (KG / CG / MG)\n                      │\n                      ├─ Governance & Quality Gates (JEV Guard)\n                      └─ Automated Bot Factories\n```\n\n## Subsystem Registry\n\n- `.hath0r/`: Framework metadata root (configs, memory, cache)\n- `contracts/`: JSON schema contracts\n- `docs/governance/playbooks/`: Coding and troubleshooting playbooks\n",
+      "content": "# Technical Architecture — StarWars-Galaxies-Client\n\nThis document provides the definitive technical specification and subsystem map for `StarWars-Galaxies-Client` (Strategy B).\n\n> See [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) for the full rendering pipeline, terrain shaders, and VFS architecture.  \n> See [`docs/PRE_CU_SPECIFICATION.md`](docs/PRE_CU_SPECIFICATION.md) for gameplay interface and client-side asset specifications.\n\n---\n\n## Architecture Map\n\n```text\n[OS Window & Events (winit)] ───► [Local Simulation (bevy_ecs)]\n                                          │\n               ┌──────────────────────────┼──────────────────────────┐\n               ▼                          ▼                          ▼\n   [Network Client (tokio)]     [Terrain & Scene Graph]     [UI Engine (egui)]\n   • SOE UDP Socket             • Procedural .trn Heights   • Pre-CU Radar & HAM\n   • Prediction Buffer          • Skeletal Mesh Blending    • Radial Menus\n   • Remote Interpolation       • Clustered Forward+ PBR    • Inventory Windows\n               │                          │                          │\n               └──────────────────────────┼──────────────────────────┘\n                      ",
       "properties": {
         "path": "TECH_README.md",
         "category": "root",
-        "size_bytes": 565
+        "size_bytes": 2759
       },
       "is_current": true
     },
@@ -187,6 +524,85 @@
       "content": "KnowledgeGraph, ContextGraph, MemoryGraph.",
       "properties": {
         "source": "local_memory"
+      },
+      "is_current": true
+    },
+    {
+      "id": "memory:rule:cr-bai-001",
+      "plane": "memory",
+      "type": "rule",
+      "label": "Promotion Path Policy",
+      "content": "Promotion order: local -> development -> testing -> staging -> master.",
+      "properties": {
+        "source": "local_memory",
+        "tags": [
+          "rule",
+          "governance",
+          "ci"
+        ],
+        "importance": 1.0
+      },
+      "is_current": true
+    },
+    {
+      "id": "memory:rule:cr-memory-compound-001",
+      "plane": "memory",
+      "type": "rule",
+      "label": "Mandatory MemoryGraph Compounding Rule",
+      "content": "Every project repo must maintain .hath0r/memory/graph.json and every task must compound knowledge prior to announcing complete.",
+      "properties": {
+        "source": "local_memory",
+        "tags": [
+          "rule",
+          "governance",
+          "memorygraph",
+          "cr-memory-compound-001"
+        ],
+        "importance": 1.0
+      },
+      "is_current": true
+    },
+    {
+      "id": "memory:fact:repo-client-orientation",
+      "plane": "memory",
+      "type": "fact",
+      "label": "Client Repository Memory Orientation",
+      "content": "Client: **Ground-Up 64-Bit Modern Client for Star Wars Galaxies (Strategy B) & Enterprise Agentic Application** > Technical Reference: See [TECH_README.md](TECH_README.md) for architecture, subsystem maps, and specifications. ---",
+      "properties": {
+        "source": "local_memory",
+        "tags": [
+          "orientation",
+          "repository",
+          "client",
+          "cr-memory-compound-001",
+          "fact",
+          "compounded"
+        ],
+        "importance": 0.85
+      },
+      "is_current": true
+    },
+    {
+      "id": "memory:session:sess-20261016-123217-093071",
+      "plane": "memory",
+      "type": "session",
+      "label": "Micro Session sess-20261016-123217-093071",
+      "content": "Micro Session sess-20261016-123217-093071 [active] | Focus: Repository orientation verified for Client | Reads: 4, Writes: 5 | Entries: Compounded fact:repo-client-orientation: Client Repository Memory Orientation",
+      "properties": {
+        "session_id": "sess-20261016-123217-093071",
+        "prior_session_id": null,
+        "parent_session_id": null,
+        "read_count": 4,
+        "write_count": 5,
+        "status": "active",
+        "byte_size": 1725,
+        "source": "local_memory",
+        "tags": [
+          "session",
+          "micro-session",
+          "active"
+        ],
+        "importance": 0.75
       },
       "is_current": true
     },
@@ -229,55 +645,52 @@
         ]
       },
       "is_current": true
-    },
-    {
-      "id": "rule:cr-bai-001",
-      "plane": "rules",
-      "type": "rule_policy",
-      "label": "BAI Promotion Gate",
-      "content": "Canonical promotion development -> testing -> staging -> master.",
-      "policy_type": "governance",
-      "enforcement_level": "hard_stop",
-      "is_current": true,
-      "valid_from": "2026-10-14T11:41:31.380832+00:00",
-      "valid_to": null,
-      "properties": {
-        "rule_code": "CR-BAI-001"
-      }
-    },
-    {
-      "id": "rule:cr-cli-entry-001",
-      "plane": "rules",
-      "type": "rule_policy",
-      "label": "CLI-First Rule",
-      "content": "CLI-First & Missing Capability Offer: invoke hath0r first, never ad-hoc workarounds.",
-      "policy_type": "workflow",
-      "enforcement_level": "hard_stop",
-      "is_current": true,
-      "valid_from": "2026-10-14T11:41:31.380832+00:00",
-      "valid_to": null,
-      "properties": {
-        "rule_code": "CR-CLI-ENTRY-001"
-      }
-    },
-    {
-      "id": "rule:cr-branch-gov-001",
-      "plane": "rules",
-      "type": "rule_policy",
-      "label": "Branch Governance",
-      "content": "Branch & Promotion Governance: work PRs target development only, canonical promotion path.",
-      "policy_type": "governance",
-      "enforcement_level": "hard_stop",
-      "is_current": true,
-      "valid_from": "2026-10-14T11:41:31.380832+00:00",
-      "valid_to": null,
-      "properties": {
-        "rule_code": "CR-BRANCH-GOV-001"
-      }
     }
   ],
   "edges": [
     {
+      "source": "memory:rule:cr-cli-entry-001",
+      "target": "concept:tri-graph",
+      "relation": "ENFORCES",
+      "is_current": true
+    },
+    {
+      "source": "memory:rule:cr-memory-compound-001",
+      "target": "concept:tri-graph",
+      "relation": "ENFORCES",
+      "is_current": true
+    },
+    {
+      "source": "memory:fact:repo-client-orientation",
+      "target": "concept:tri-graph",
+      "relation": "RELATES_TO",
+      "is_current": true
+    },
+    {
+      "source": "memory:fact:repo-client-orientation",
+      "target": "memory:rule:cr-memory-compound-001",
+      "relation": "RELATES_TO",
+      "is_current": true
+    },
+    {
+      "source": "memory:session:sess-20261016-123217-093071",
+      "target": "concept:tri-graph",
+      "relation": "RELATES_TO",
+      "is_current": true
+    },
+    {
+      "source": "memory:fact:repo-client-orientation",
+      "target": "memory:session:sess-20261016-123217-093071",
+      "relation": "DERIVES_FROM",
+      "is_current": true
+    },
+    {
+      "source": "rule:rules",
+      "target": "role:developer",
+      "relation": "GOVERNS",
+      "is_current": true
+    },
+    {
       "source": "rule:rules",
       "target": "role:developer",
       "relation": "GOVERNS",
@@ -291,6 +704,24 @@
     },
     {
       "source": "rule:rules",
+      "target": "role:developer",
+      "relation": "GOVERNS",
+      "is_current": true
+    },
+    {
+      "source": "rule:cr-bai-001",
+      "target": "role:developer",
+      "relation": "GOVERNS",
+      "is_current": true
+    },
+    {
+      "source": "rule:cr-cli-entry-001",
+      "target": "role:developer",
+      "relation": "GOVERNS",
+      "is_current": true
+    },
+    {
+      "source": "rule:cr-branch-gov-001",
       "target": "role:developer",
       "relation": "GOVERNS",
       "is_current": true
@@ -308,32 +739,32 @@
       "is_current": true
     },
     {
-      "source": "role:developer",
-      "target": "rule:cr-bai-001",
-      "relation": "RESTRICTED_BY",
-      "valid_from": "2026-10-14T11:41:31.380832+00:00",
-      "valid_to": null,
+      "source": "memory:rule:cr-bai-001",
+      "target": "role:developer",
+      "relation": "INFORMS",
       "is_current": true
     },
     {
-      "source": "role:developer",
-      "target": "rule:cr-cli-entry-001",
-      "relation": "RESTRICTED_BY",
-      "valid_from": "2026-10-14T11:41:31.380832+00:00",
-      "valid_to": null,
+      "source": "memory:rule:cr-memory-compound-001",
+      "target": "role:developer",
+      "relation": "INFORMS",
       "is_current": true
     },
     {
-      "source": "role:developer",
-      "target": "rule:cr-branch-gov-001",
-      "relation": "RESTRICTED_BY",
-      "valid_from": "2026-10-14T11:41:31.380832+00:00",
-      "valid_to": null,
+      "source": "memory:fact:repo-client-orientation",
+      "target": "role:developer",
+      "relation": "INFORMS",
+      "is_current": true
+    },
+    {
+      "source": "memory:session:sess-20261016-123217-093071",
+      "target": "role:developer",
+      "relation": "INFORMS",
       "is_current": true
     }
   ],
   "metadata": {
     "repo_root": "/Users/raybayly/Development/BAI/GAMES/SWG/Client",
-    "synced_sources": 16
+    "synced_sources": 37
   }
 }

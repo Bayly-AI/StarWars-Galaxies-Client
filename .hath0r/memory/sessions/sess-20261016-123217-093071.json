@@ -1,0 +1,51 @@
+{
+  "schema_version": "hath0r.micro_session/1",
+  "session_id": "sess-20261016-123217-093071",
+  "prior_session_id": null,
+  "parent_session_id": null,
+  "task_id": null,
+  "role": null,
+  "repo_name": "Client",
+  "status": "active",
+  "started_at": "2026-10-16T12:32:17.373033+00:00",
+  "updated_at": "2026-10-16T15:24:49.889720+00:00",
+  "ended_at": null,
+  "read_count": 5,
+  "write_count": 5,
+  "last_read_at": "2026-10-16T15:24:49.889720+00:00",
+  "last_write_at": "2026-10-16T15:24:49.227541+00:00",
+  "active_focus": "Repository orientation verified for Client",
+  "prior_summary": "ounded fact:repo-client-orientation:; Compounded fact:repo-client-orientation:; Compounded fact:repo-client-orientation:",
+  "recalled_nodes": [
+    {
+      "id": "fact:repo-client-orientation",
+      "type": "fact",
+      "label": "Client Repository Memory Orientation",
+      "snippet": "Client: **Ground-Up 64-Bit Modern Client for Star Wars Galaxies (Strategy B) & Enterprise "
+    }
+  ],
+  "micro_entries": [
+    {
+      "timestamp": "2026-10-16T15:24:49.227541+00:00",
+      "kind": "compound",
+      "summary": "Compounded fact:repo-client-orientation: Client Repository Memory Orientation",
+      "tags": [
+        "orientation",
+        "repository",
+        "client",
+        "cr-memory-compound-001",
+        "fact",
+        "compounded"
+      ],
+      "node_id": "fact:repo-client-orientation"
+    }
+  ],
+  "next_steps": [],
+  "compounded_node_ids": [
+    "fact:repo-client-orientation"
+  ],
+  "capsule_bytes": 1725,
+  "revision": 6,
+  "base_graph_hash": "sha256:7f488c8c25de60869b1722940e41375690e7038c698bd6d1672029e4e962a030",
+  "content_hash": "sha256:fa5d6125f56668be5566f5eeb6ab8847aef317af91011cb5b045e66425cea78b"
+}
