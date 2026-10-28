@@ -1,7 +1,7 @@
 {
   "schema_version": "hath0r.agentgraph/1",
   "graph_id": "agentgraph-Client",
-  "timestamp": "2026-10-16T15:55:50.047573+00:00",
+  "timestamp": "2026-10-28T14:21:05.837846+00:00",
   "nodes": [
     {
       "id": "doc:agents-root",
@@ -136,6 +136,19 @@
       "content": "Governance policy rule CR-CLI-ENTRY-001 referenced in AGENTS.md",
       "properties": {
         "rule_code": "CR-CLI-ENTRY-001",
+        "priority": 4,
+        "restricted_actions": []
+      },
+      "is_current": true
+    },
+    {
+      "id": "rule:cr-task-eval-001",
+      "plane": "rules",
+      "type": "rule_policy",
+      "label": "Rule CR-TASK-EVAL-001",
+      "content": "Governance policy rule CR-TASK-EVAL-001 referenced in AGENTS.md",
+      "properties": {
+        "rule_code": "CR-TASK-EVAL-001",
         "priority": 4,
         "restricted_actions": []
       },
@@ -622,19 +635,60 @@
       "is_current": true
     },
     {
+      "id": "memory:rule:cr-task-eval-001",
+      "plane": "memory",
+      "type": "rule",
+      "label": "Automatic Task Evaluation Gate (CR-TASK-EVAL-001)",
+      "content": "Every task must execute and pass the 4-tier hybrid evaluation pipeline (R_task >= 0.80) and persist .hath0r/evals/latest.json prior to announcing complete.",
+      "properties": {
+        "source": "local_memory",
+        "tags": [
+          "rule",
+          "governance",
+          "evals",
+          "cr-task-eval-001",
+          "compounded"
+        ],
+        "importance": 1.0
+      },
+      "is_current": true
+    },
+    {
+      "id": "memory:eval:eval-baseline-client",
+      "plane": "memory",
+      "type": "eval",
+      "label": "Task Evaluation eval-baseline-client (R=1.00, PASS)",
+      "content": "4-Tier Task Evaluation for eval-baseline-client on branch development: R_task=1.0000 (det=1.00, traj=1.00, adv=1.00, goal=1.00). Gate=PASSED.",
+      "properties": {
+        "source_files": {
+          ".hath0r/evals/latest.json": "sha256:d1bc5b4114bdfa01f080981fbdfdf5132f06643dd22f773bbebf2b7661b7dbd1"
+        },
+        "source": "local_memory",
+        "tags": [
+          "eval",
+          "cr-task-eval-001",
+          "eval-baseline-client",
+          "passed",
+          "compounded"
+        ],
+        "importance": 0.85
+      },
+      "is_current": true
+    },
+    {
       "id": "memory:session:sess-20261016-123217-093071",
       "plane": "memory",
       "type": "session",
       "label": "Micro Session sess-20261016-123217-093071",
-      "content": "Micro Session sess-20261016-123217-093071 [completed] | Focus: Repository orientation verified for Client | Reads: 6, Writes: 7 | Entries: Compounded episode:clean-repo-client: Clean Repo Lifecycle (Client); Clean Repo Lifecycle completed for Client.",
+      "content": "Micro Session sess-20261016-123217-093071 [completed] | Focus: Provisioning CR-TASK-EVAL-001 for Client | Reads: 7, Writes: 9 | Entries: Compounded eval:eval-baseline-client: Task Evaluation eval-baseline-client (R=1.00, PASS)",
       "properties": {
         "session_id": "sess-20261016-123217-093071",
         "prior_session_id": null,
         "parent_session_id": null,
-        "read_count": 6,
-        "write_count": 7,
+        "read_count": 7,
+        "write_count": 9,
         "status": "completed",
-        "byte_size": 1970,
+        "byte_size": 1842,
         "source": "local_memory",
         "tags": [
           "session",
@@ -754,6 +808,48 @@
       "is_current": true
     },
     {
+      "source": "memory:rule:cr-task-eval-001",
+      "target": "concept:tri-graph",
+      "relation": "INFORMS",
+      "is_current": true
+    },
+    {
+      "source": "memory:rule:cr-task-eval-001",
+      "target": "memory:rule:cr-memory-compound-001",
+      "relation": "INFORMS",
+      "is_current": true
+    },
+    {
+      "source": "memory:rule:cr-task-eval-001",
+      "target": "memory:session:sess-20261016-123217-093071",
+      "relation": "DERIVES_FROM",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:eval-baseline-client",
+      "target": "concept:tri-graph",
+      "relation": "EVALUATES",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:eval-baseline-client",
+      "target": "memory:rule:cr-memory-compound-001",
+      "relation": "EVALUATES",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:eval-baseline-client",
+      "target": "memory:session:sess-20261016-123217-093071",
+      "relation": "EVALUATES",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:eval-baseline-client",
+      "target": "memory:session:sess-20261016-123217-093071",
+      "relation": "DERIVES_FROM",
+      "is_current": true
+    },
+    {
       "source": "rule:rules",
       "target": "role:developer",
       "relation": "GOVERNS",
@@ -785,6 +881,12 @@
     },
     {
       "source": "rule:cr-cli-entry-001",
+      "target": "role:developer",
+      "relation": "GOVERNS",
+      "is_current": true
+    },
+    {
+      "source": "rule:cr-task-eval-001",
       "target": "role:developer",
       "relation": "GOVERNS",
       "is_current": true
@@ -833,6 +935,18 @@
     },
     {
       "source": "memory:insight:client",
+      "target": "role:developer",
+      "relation": "INFORMS",
+      "is_current": true
+    },
+    {
+      "source": "memory:rule:cr-task-eval-001",
+      "target": "role:developer",
+      "relation": "INFORMS",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:eval-baseline-client",
       "target": "role:developer",
       "relation": "INFORMS",
       "is_current": true
