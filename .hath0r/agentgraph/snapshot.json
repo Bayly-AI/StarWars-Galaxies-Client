@@ -1,7 +1,7 @@
 {
   "schema_version": "hath0r.agentgraph/1",
   "graph_id": "agentgraph-Client",
-  "timestamp": "2026-10-28T14:21:05.837846+00:00",
+  "timestamp": "2026-10-28T15:27:33.675993+00:00",
   "nodes": [
     {
       "id": "doc:agents-root",
@@ -600,7 +600,7 @@
       "plane": "memory",
       "type": "episode",
       "label": "Clean Repo Lifecycle (Client)",
-      "content": "Executed 13-step clean-repo hygiene and knowledge sync for Client.",
+      "content": "Executed 13-step clean-repo hygiene, branch merges, and knowledge sync for Client.",
       "properties": {
         "source": "local_memory",
         "tags": [
@@ -676,19 +676,41 @@
       "is_current": true
     },
     {
+      "id": "memory:eval:clean-repo-client",
+      "plane": "memory",
+      "type": "eval",
+      "label": "Task Evaluation clean-repo-client (R=1.00, PASS)",
+      "content": "4-Tier Task Evaluation for clean-repo-client on branch development: R_task=1.0000 (det=1.00, traj=1.00, adv=1.00, goal=1.00). Gate=PASSED.",
+      "properties": {
+        "source_files": {
+          ".hath0r/evals/latest.json": "sha256:dbe92a111906ead6fbfe8220cc00b906165bf8c6d7c80e4413fef014a3c63223"
+        },
+        "source": "local_memory",
+        "tags": [
+          "eval",
+          "cr-task-eval-001",
+          "clean-repo-client",
+          "passed",
+          "compounded"
+        ],
+        "importance": 0.85
+      },
+      "is_current": true
+    },
+    {
       "id": "memory:session:sess-20261016-123217-093071",
       "plane": "memory",
       "type": "session",
       "label": "Micro Session sess-20261016-123217-093071",
-      "content": "Micro Session sess-20261016-123217-093071 [completed] | Focus: Provisioning CR-TASK-EVAL-001 for Client | Reads: 7, Writes: 9 | Entries: Compounded eval:eval-baseline-client: Task Evaluation eval-baseline-client (R=1.00, PASS)",
+      "content": "Micro Session sess-20261016-123217-093071 [completed] | Focus: Provisioning CR-TASK-EVAL-001 for Client | Reads: 8, Writes: 12 | Entries: Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=1.00, PASS)",
       "properties": {
         "session_id": "sess-20261016-123217-093071",
         "prior_session_id": null,
         "parent_session_id": null,
-        "read_count": 7,
-        "write_count": 9,
+        "read_count": 8,
+        "write_count": 12,
         "status": "completed",
-        "byte_size": 1842,
+        "byte_size": 1843,
         "source": "local_memory",
         "tags": [
           "session",
@@ -850,6 +872,30 @@
       "is_current": true
     },
     {
+      "source": "memory:eval:clean-repo-client",
+      "target": "concept:tri-graph",
+      "relation": "EVALUATES",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:clean-repo-client",
+      "target": "memory:rule:cr-memory-compound-001",
+      "relation": "EVALUATES",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:clean-repo-client",
+      "target": "memory:session:sess-20261016-123217-093071",
+      "relation": "EVALUATES",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:clean-repo-client",
+      "target": "memory:session:sess-20261016-123217-093071",
+      "relation": "DERIVES_FROM",
+      "is_current": true
+    },
+    {
       "source": "rule:rules",
       "target": "role:developer",
       "relation": "GOVERNS",
@@ -947,6 +993,12 @@
     },
     {
       "source": "memory:eval:eval-baseline-client",
+      "target": "role:developer",
+      "relation": "INFORMS",
+      "is_current": true
+    },
+    {
+      "source": "memory:eval:clean-repo-client",
       "target": "role:developer",
       "relation": "INFORMS",
       "is_current": true

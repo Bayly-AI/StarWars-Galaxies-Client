@@ -8,35 +8,35 @@
   "repo_name": "Client",
   "status": "completed",
   "started_at": "2026-10-16T12:32:17.373033+00:00",
-  "updated_at": "2026-10-28T14:21:05.553980+00:00",
-  "ended_at": "2026-10-16T15:55:49.492120+00:00",
-  "read_count": 7,
-  "write_count": 9,
-  "last_read_at": "2026-10-28T14:21:05.017452+00:00",
-  "last_write_at": "2026-10-28T14:21:05.553980+00:00",
+  "updated_at": "2026-10-28T15:27:33.374932+00:00",
+  "ended_at": "2026-10-28T15:27:32.234348+00:00",
+  "read_count": 8,
+  "write_count": 12,
+  "last_read_at": "2026-10-28T15:27:32.200047+00:00",
+  "last_write_at": "2026-10-28T15:27:33.374932+00:00",
   "active_focus": "Provisioning CR-TASK-EVAL-001 for Client",
-  "prior_summary": "ounded episode:clean-repo-client: Cl; Clean Repo Lifecycle completed for Clien; Compounded rule:cr-task-eval-001: Automa",
+  "prior_summary": "ounded eval:eval-baseline-client: Ta; Compounded episode:clean-repo-client: Cl; Clean Repo Lifecycle completed for Clien",
   "recalled_nodes": [
     {
-      "id": "fact:repo-client-orientation",
-      "type": "fact",
-      "label": "Client Repository Memory Orientation",
-      "snippet": "Client: **Ground-Up 64-Bit Modern Client for Star Wars Galaxies (Strategy B) & Enterprise "
+      "id": "insight:client",
+      "type": "insight",
+      "label": "Synthesized Insight on client",
+      "snippet": "Consolidated from 2 memory nodes tagged 'client'. Recurring themes: client, clean, repo, r"
     }
   ],
   "micro_entries": [
     {
-      "timestamp": "2026-10-28T14:21:05.553980+00:00",
+      "timestamp": "2026-10-28T15:27:33.374932+00:00",
       "kind": "compound",
-      "summary": "Compounded eval:eval-baseline-client: Task Evaluation eval-baseline-client (R=1.00, PASS)",
+      "summary": "Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=1.00, PASS)",
       "tags": [
         "eval",
         "cr-task-eval-001",
-        "eval-baseline-client",
+        "clean-repo-client",
         "passed",
         "compounded"
       ],
-      "node_id": "eval:eval-baseline-client"
+      "node_id": "eval:clean-repo-client"
     }
   ],
   "next_steps": [],
@@ -44,10 +44,11 @@
     "fact:repo-client-orientation",
     "episode:clean-repo-client",
     "rule:cr-task-eval-001",
-    "eval:eval-baseline-client"
+    "eval:eval-baseline-client",
+    "eval:clean-repo-client"
   ],
-  "capsule_bytes": 1842,
-  "revision": 12,
-  "base_graph_hash": "sha256:097410d3ec284b81de9b2391e80a115eeee28b072a5d36fb79638177b9bbb220",
-  "content_hash": "sha256:184c94e1e1f6aa6437c5bfae0025113457eb471940e100c9928a4e7d9421f3ec"
+  "capsule_bytes": 1843,
+  "revision": 16,
+  "base_graph_hash": "sha256:013afda5f2c36f056ab87b3dcd6c8d009f53fc2932242cd7ab4a73c7d1af091d",
+  "content_hash": "sha256:fd152b524c37e587909a2e55c6a69660a53e5f6845c877f93134c52844db339c"
 }

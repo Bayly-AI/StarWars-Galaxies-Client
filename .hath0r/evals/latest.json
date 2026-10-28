@@ -1,13 +1,13 @@
 {
   "schema_version": "hath0r.evals.scorecard/v1",
   "rule_id": "CR-TASK-EVAL-001",
-  "eval_id": "eval-20261028-142105-f832be",
-  "task_id": "eval-baseline-client",
+  "eval_id": "eval-20261028-152733-5689be",
+  "task_id": "clean-repo-client",
   "issue_number": null,
   "repo_name": "Client",
   "branch": "development",
-  "evaluated_at": "2026-10-28T14:21:05.385960+00:00",
-  "duration_ms": 194.28,
+  "evaluated_at": "2026-10-28T15:27:33.008556+00:00",
+  "duration_ms": 422.99,
   "passed_gate": true,
   "r_task": 1.0,
   "min_reward_threshold": 0.8,
@@ -32,7 +32,7 @@
       "checks": {
         "version_valid": {
           "passed": true,
-          "version": "0.0.1",
+          "version": "0.1.0",
           "error": null
         },
         "agentgraph_valid": {
@@ -42,7 +42,7 @@
         },
         "memory_compounded": {
           "passed": true,
-          "compounded_nodes_count": 4,
+          "compounded_nodes_count": 5,
           "session_read_verified": true,
           "session_write_verified": true,
           "hashes_verified": true,
@@ -64,13 +64,13 @@
       "estimated_usd": 0.0,
       "max_usd": 0.25,
       "session_id": "sess-20261016-123217-093071",
-      "session_reads": 7,
-      "session_writes": 8,
-      "session_bytes": 2015,
+      "session_reads": 8,
+      "session_writes": 11,
+      "session_bytes": 2014,
       "within_capsule_budget": true,
-      "latency_ms": 77.2,
-      "taguchi_quality_loss": 0.0001,
-      "snr_db": 28.27
+      "latency_ms": 141.24,
+      "taguchi_quality_loss": 0.0002,
+      "snr_db": 23.02
     },
     "adversarial": {
       "score": 1.0,
@@ -85,10 +85,10 @@
     "goal_alignment": {
       "score": 1.0,
       "passed": true,
-      "task_id": "eval-baseline-client",
+      "task_id": "clean-repo-client",
       "issue_number": null,
       "active_focus": "Provisioning CR-TASK-EVAL-001 for Client",
-      "compounded_nodes_count": 4,
+      "compounded_nodes_count": 5,
       "consensus_score": 1.0
     }
   },
@@ -96,5 +96,5 @@
   "observability_sync": {
     "mode": "pending"
   },
-  "content_hash": "sha256:08f0e7af5acdc1aa7a2dc867d123ac3d631952146fdfafe34087463550fb866b"
+  "content_hash": "sha256:707169c6e859e6dfdd86e3fcfe39a9c84410db5faf6fd95efd7af9e85a4537ee"
 }
