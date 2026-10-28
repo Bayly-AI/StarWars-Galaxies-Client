@@ -1,50 +1,50 @@
 {
   "schema_version": "hath0r.memory_hashes/1",
   "repo_name": "Client",
-  "revision": 48,
-  "updated_at": "2026-10-28T15:27:33.679060+00:00",
+  "revision": 55,
+  "updated_at": "2026-10-28T17:36:26.097171+00:00",
   "files": {
     ".hath0r/memory/architecture.md": {
       "sha256": "sha256:bb77e27d7eb55d790ba3ed8322101d2e637f1fcbf9d13cfc72bceeba7e32d25e",
       "content_hash": "sha256:bb77e27d7eb55d790ba3ed8322101d2e637f1fcbf9d13cfc72bceeba7e32d25e",
       "revision": 1,
       "byte_size": 198,
-      "updated_at": "2026-10-28T15:27:33.679060+00:00"
+      "updated_at": "2026-10-28T17:36:26.097171+00:00"
     },
     ".hath0r/memory/core_rules.md": {
-      "sha256": "sha256:dcbb420284ebf14ba3bafade7ff5bb7f23e4b19a35bb51f74118e18f069dedad",
-      "content_hash": "sha256:dcbb420284ebf14ba3bafade7ff5bb7f23e4b19a35bb51f74118e18f069dedad",
-      "revision": 2,
-      "byte_size": 539,
-      "updated_at": "2026-10-28T15:27:33.679060+00:00"
+      "sha256": "sha256:a38deda7ad37f4afd010ea32d39d64d3142df11dd47330531175b7a3286e9749",
+      "content_hash": "sha256:a38deda7ad37f4afd010ea32d39d64d3142df11dd47330531175b7a3286e9749",
+      "revision": 3,
+      "byte_size": 630,
+      "updated_at": "2026-10-28T17:36:26.097171+00:00"
     },
     ".hath0r/memory/graph.json": {
-      "sha256": "sha256:aa23a405bf1e548a0afc52fd389da6a6a61360d87db5cd4bc0e2c1bd78c8a8e1",
-      "content_hash": "sha256:5bae6d37684768ed7456566d161c3ff6a016ff02a6a9f8c10cd282f6f4d17978",
-      "revision": 36,
-      "byte_size": 12298,
-      "updated_at": "2026-10-28T15:27:33.679060+00:00"
+      "sha256": "sha256:22ec392a0a02d9f3092445e1a9e11fd74d19676dea746cc22cc6e6f872bd9209",
+      "content_hash": "sha256:23580aa376e36506bf0648d7ac962da6860dedfb473394588e4abce66ed59238",
+      "revision": 41,
+      "byte_size": 12428,
+      "updated_at": "2026-10-28T17:36:26.097171+00:00"
     },
     ".hath0r/memory/sessions/current.json": {
-      "sha256": "sha256:be2a6f228e202e475ec7664dc78a78d387d2a6b6d7c6e280396c5c25e8ba0bc1",
-      "content_hash": "sha256:fd152b524c37e587909a2e55c6a69660a53e5f6845c877f93134c52844db339c",
-      "revision": 16,
-      "byte_size": 1843,
-      "updated_at": "2026-10-28T15:27:33.679060+00:00"
+      "sha256": "sha256:3f0e635b8921d41e70b0225dba02d9613909bd837954132fd36b16a7f769500d",
+      "content_hash": "sha256:2e9b9e1fe44b7bd373f8a1b515fa9cbb1484277e5c22d72b94a349ff652c88a5",
+      "revision": 18,
+      "byte_size": 1899,
+      "updated_at": "2026-10-28T17:36:26.097171+00:00"
     },
     ".hath0r/memory/sessions/latest.json": {
-      "sha256": "sha256:be2a6f228e202e475ec7664dc78a78d387d2a6b6d7c6e280396c5c25e8ba0bc1",
-      "content_hash": "sha256:fd152b524c37e587909a2e55c6a69660a53e5f6845c877f93134c52844db339c",
-      "revision": 16,
-      "byte_size": 1843,
-      "updated_at": "2026-10-28T15:27:33.679060+00:00"
+      "sha256": "sha256:3f0e635b8921d41e70b0225dba02d9613909bd837954132fd36b16a7f769500d",
+      "content_hash": "sha256:2e9b9e1fe44b7bd373f8a1b515fa9cbb1484277e5c22d72b94a349ff652c88a5",
+      "revision": 18,
+      "byte_size": 1899,
+      "updated_at": "2026-10-28T17:36:26.097171+00:00"
     },
     ".hath0r/memory/sessions/sess-20261016-123217-093071.json": {
-      "sha256": "sha256:be2a6f228e202e475ec7664dc78a78d387d2a6b6d7c6e280396c5c25e8ba0bc1",
-      "content_hash": "sha256:fd152b524c37e587909a2e55c6a69660a53e5f6845c877f93134c52844db339c",
-      "revision": 16,
-      "byte_size": 1843,
-      "updated_at": "2026-10-28T15:27:33.679060+00:00"
+      "sha256": "sha256:3f0e635b8921d41e70b0225dba02d9613909bd837954132fd36b16a7f769500d",
+      "content_hash": "sha256:2e9b9e1fe44b7bd373f8a1b515fa9cbb1484277e5c22d72b94a349ff652c88a5",
+      "revision": 18,
+      "byte_size": 1899,
+      "updated_at": "2026-10-28T17:36:26.097171+00:00"
     }
   },
   "source_files": {
@@ -57,7 +57,7 @@
         "eval:clean-repo-client",
         "eval:eval-baseline-client"
       ],
-      "updated_at": "2026-10-28T15:27:33.679060+00:00"
+      "updated_at": "2026-10-28T17:36:26.097171+00:00"
     }
   }
 }
