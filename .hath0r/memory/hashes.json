@@ -1,63 +1,63 @@
 {
   "schema_version": "hath0r.memory_hashes/1",
   "repo_name": "Client",
-  "revision": 68,
-  "updated_at": "2026-10-28T17:45:00.096060+00:00",
+  "revision": 78,
+  "updated_at": "2026-10-28T18:12:02.956548+00:00",
   "files": {
     ".hath0r/memory/architecture.md": {
       "sha256": "sha256:bb77e27d7eb55d790ba3ed8322101d2e637f1fcbf9d13cfc72bceeba7e32d25e",
       "content_hash": "sha256:bb77e27d7eb55d790ba3ed8322101d2e637f1fcbf9d13cfc72bceeba7e32d25e",
       "revision": 1,
       "byte_size": 198,
-      "updated_at": "2026-10-28T17:45:00.096060+00:00"
+      "updated_at": "2026-10-28T18:12:02.956548+00:00"
     },
     ".hath0r/memory/core_rules.md": {
       "sha256": "sha256:a38deda7ad37f4afd010ea32d39d64d3142df11dd47330531175b7a3286e9749",
       "content_hash": "sha256:a38deda7ad37f4afd010ea32d39d64d3142df11dd47330531175b7a3286e9749",
       "revision": 3,
       "byte_size": 630,
-      "updated_at": "2026-10-28T17:45:00.096060+00:00"
+      "updated_at": "2026-10-28T18:12:02.956548+00:00"
     },
     ".hath0r/memory/graph.json": {
-      "sha256": "sha256:87ec3ffa51c1fd7b6c9379e00c8540eb164d7d66293b11d30fff064e355c5018",
-      "content_hash": "sha256:65cdf681a7245edde720af4a93426b7e359b9929c1230f6c7be64a19a29d459d",
-      "revision": 50,
-      "byte_size": 12416,
-      "updated_at": "2026-10-28T17:45:00.096060+00:00"
+      "sha256": "sha256:92b8448b1f834d7af828183038f3832e9c5b0d7e59f52d860ebb6a474d9fde42",
+      "content_hash": "sha256:dbbe1468a85989f0a991eabc6e33ddd375353ef9caead61313c00d79b8264520",
+      "revision": 58,
+      "byte_size": 12405,
+      "updated_at": "2026-10-28T18:12:02.956548+00:00"
     },
     ".hath0r/memory/sessions/current.json": {
-      "sha256": "sha256:a5305739bcb14a2ed4cbae34c57a4514edebb5ab7719bdb7266e560b273c43f8",
-      "content_hash": "sha256:f6590ee0a3eb2ba9702b5258e0fc0600bc5d75647fe3aaa75b117867b57b6f24",
-      "revision": 21,
-      "byte_size": 1880,
-      "updated_at": "2026-10-28T17:45:00.096060+00:00"
+      "sha256": "sha256:50f70f2689458fab2e37a3a796c94bfd3f1ccd1baef0df6b08edbc01b9bd4cc5",
+      "content_hash": "sha256:3fead60e5b1dd2e196b9d56d7e3ed1a02effb4b8781aa1c89eb917492b8a20c1",
+      "revision": 24,
+      "byte_size": 1844,
+      "updated_at": "2026-10-28T18:12:02.956548+00:00"
     },
     ".hath0r/memory/sessions/latest.json": {
-      "sha256": "sha256:a5305739bcb14a2ed4cbae34c57a4514edebb5ab7719bdb7266e560b273c43f8",
-      "content_hash": "sha256:f6590ee0a3eb2ba9702b5258e0fc0600bc5d75647fe3aaa75b117867b57b6f24",
-      "revision": 21,
-      "byte_size": 1880,
-      "updated_at": "2026-10-28T17:45:00.096060+00:00"
+      "sha256": "sha256:50f70f2689458fab2e37a3a796c94bfd3f1ccd1baef0df6b08edbc01b9bd4cc5",
+      "content_hash": "sha256:3fead60e5b1dd2e196b9d56d7e3ed1a02effb4b8781aa1c89eb917492b8a20c1",
+      "revision": 24,
+      "byte_size": 1844,
+      "updated_at": "2026-10-28T18:12:02.956548+00:00"
     },
     ".hath0r/memory/sessions/sess-20261016-123217-093071.json": {
-      "sha256": "sha256:a5305739bcb14a2ed4cbae34c57a4514edebb5ab7719bdb7266e560b273c43f8",
-      "content_hash": "sha256:f6590ee0a3eb2ba9702b5258e0fc0600bc5d75647fe3aaa75b117867b57b6f24",
-      "revision": 21,
-      "byte_size": 1880,
-      "updated_at": "2026-10-28T17:45:00.096060+00:00"
+      "sha256": "sha256:50f70f2689458fab2e37a3a796c94bfd3f1ccd1baef0df6b08edbc01b9bd4cc5",
+      "content_hash": "sha256:3fead60e5b1dd2e196b9d56d7e3ed1a02effb4b8781aa1c89eb917492b8a20c1",
+      "revision": 24,
+      "byte_size": 1844,
+      "updated_at": "2026-10-28T18:12:02.956548+00:00"
     }
   },
   "source_files": {
     ".hath0r/evals/latest.json": {
-      "sha256": "sha256:e1170df0d1dc516b9f915b99507cffee8f8f92aaa526f05352076ae477a25763",
-      "revision": 3,
-      "byte_size": 2615,
+      "sha256": "sha256:2bfb2073aa9e38656de93fc677feefbf565a585c5ceebc4aa75e0f149c5504cf",
+      "revision": 4,
+      "byte_size": 2608,
       "exists": true,
       "referenced_by": [
         "eval:clean-repo-client",
         "eval:eval-baseline-client"
       ],
-      "updated_at": "2026-10-28T17:45:00.096060+00:00"
+      "updated_at": "2026-10-28T18:12:02.956548+00:00"
     }
   }
 }

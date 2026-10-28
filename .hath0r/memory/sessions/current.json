@@ -8,35 +8,35 @@
   "repo_name": "Client",
   "status": "completed",
   "started_at": "2026-10-16T12:32:17.373033+00:00",
-  "updated_at": "2026-10-28T17:44:59.843717+00:00",
+  "updated_at": "2026-10-28T18:12:02.446177+00:00",
   "ended_at": "2026-10-28T15:27:32.234348+00:00",
-  "read_count": 10,
-  "write_count": 15,
-  "last_read_at": "2026-10-28T17:44:59.250364+00:00",
-  "last_write_at": "2026-10-28T17:44:59.843717+00:00",
+  "read_count": 11,
+  "write_count": 17,
+  "last_read_at": "2026-10-28T18:12:01.563632+00:00",
+  "last_write_at": "2026-10-28T18:12:02.446177+00:00",
   "active_focus": "Provisioning CR-TASK-EVAL-001 for Client",
-  "prior_summary": "pounded eval:clean-repo-client: Task; Compounded rule:cr-task-eval-001: Automa; Compounded rule:cr-task-eval-001: Automa",
+  "prior_summary": "ounded rule:cr-task-eval-001: Automa; Compounded eval:eval-baseline-client: Ta; Compounded episode:clean-repo-client: Cl",
   "recalled_nodes": [
     {
-      "id": "eval:clean-repo-client",
-      "type": "eval",
-      "label": "Task Evaluation clean-repo-client (R=1.00, PASS)",
-      "snippet": "4-Tier Task Evaluation for clean-repo-client on branch development: R_task=1.0000 (det=1.0"
+      "id": "insight:client",
+      "type": "insight",
+      "label": "Synthesized Insight on client",
+      "snippet": "Consolidated from 2 memory nodes tagged 'client'. Recurring themes: client, clean, repo, r"
     }
   ],
   "micro_entries": [
     {
-      "timestamp": "2026-10-28T17:44:59.843717+00:00",
+      "timestamp": "2026-10-28T18:12:02.446177+00:00",
       "kind": "compound",
-      "summary": "Compounded eval:eval-baseline-client: Task Evaluation eval-baseline-client (R=1.00, PASS)",
+      "summary": "Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=1.00, PASS)",
       "tags": [
         "eval",
         "cr-task-eval-001",
-        "eval-baseline-client",
+        "clean-repo-client",
         "passed",
         "compounded"
       ],
-      "node_id": "eval:eval-baseline-client"
+      "node_id": "eval:clean-repo-client"
     }
   ],
   "next_steps": [],
@@ -47,8 +47,8 @@
     "eval:eval-baseline-client",
     "eval:clean-repo-client"
   ],
-  "capsule_bytes": 1880,
-  "revision": 21,
-  "base_graph_hash": "sha256:23580aa376e36506bf0648d7ac962da6860dedfb473394588e4abce66ed59238",
-  "content_hash": "sha256:f6590ee0a3eb2ba9702b5258e0fc0600bc5d75647fe3aaa75b117867b57b6f24"
+  "capsule_bytes": 1844,
+  "revision": 24,
+  "base_graph_hash": "sha256:65cdf681a7245edde720af4a93426b7e359b9929c1230f6c7be64a19a29d459d",
+  "content_hash": "sha256:3fead60e5b1dd2e196b9d56d7e3ed1a02effb4b8781aa1c89eb917492b8a20c1"
 }
