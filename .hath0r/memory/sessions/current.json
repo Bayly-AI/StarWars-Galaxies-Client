@@ -8,35 +8,35 @@
   "repo_name": "Client",
   "status": "completed",
   "started_at": "2026-10-16T12:32:17.373033+00:00",
-  "updated_at": "2026-10-28T18:12:02.446177+00:00",
+  "updated_at": "2026-10-29T13:58:41.886949+00:00",
   "ended_at": "2026-10-28T15:27:32.234348+00:00",
-  "read_count": 11,
-  "write_count": 17,
-  "last_read_at": "2026-10-28T18:12:01.563632+00:00",
-  "last_write_at": "2026-10-28T18:12:02.446177+00:00",
+  "read_count": 13,
+  "write_count": 21,
+  "last_read_at": "2026-10-29T13:58:41.280326+00:00",
+  "last_write_at": "2026-10-29T13:58:41.886949+00:00",
   "active_focus": "Provisioning CR-TASK-EVAL-001 for Client",
-  "prior_summary": "ounded rule:cr-task-eval-001: Automa; Compounded eval:eval-baseline-client: Ta; Compounded episode:clean-repo-client: Cl",
+  "prior_summary": "ounded rule:cr-task-eval-001: Automa; Compounded eval:eval-baseline-client: Ta; Compounded rule:cr-task-eval-001: Automa",
   "recalled_nodes": [
     {
-      "id": "insight:client",
-      "type": "insight",
-      "label": "Synthesized Insight on client",
-      "snippet": "Consolidated from 2 memory nodes tagged 'client'. Recurring themes: client, clean, repo, r"
+      "id": "eval:eval-baseline-client",
+      "type": "eval",
+      "label": "Task Evaluation eval-baseline-client (R=1.00, PASS)",
+      "snippet": "4-Tier Task Evaluation for eval-baseline-client on branch development: R_task=1.0000 (det="
     }
   ],
   "micro_entries": [
     {
-      "timestamp": "2026-10-28T18:12:02.446177+00:00",
+      "timestamp": "2026-10-29T13:58:41.886949+00:00",
       "kind": "compound",
-      "summary": "Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=1.00, PASS)",
+      "summary": "Compounded eval:eval-baseline-client: Task Evaluation eval-baseline-client (R=1.00, PASS)",
       "tags": [
         "eval",
         "cr-task-eval-001",
-        "clean-repo-client",
+        "eval-baseline-client",
         "passed",
         "compounded"
       ],
-      "node_id": "eval:clean-repo-client"
+      "node_id": "eval:eval-baseline-client"
     }
   ],
   "next_steps": [],
@@ -47,8 +47,8 @@
     "eval:eval-baseline-client",
     "eval:clean-repo-client"
   ],
-  "capsule_bytes": 1844,
-  "revision": 24,
-  "base_graph_hash": "sha256:65cdf681a7245edde720af4a93426b7e359b9929c1230f6c7be64a19a29d459d",
-  "content_hash": "sha256:3fead60e5b1dd2e196b9d56d7e3ed1a02effb4b8781aa1c89eb917492b8a20c1"
+  "capsule_bytes": 1886,
+  "revision": 30,
+  "base_graph_hash": "sha256:c942a8c3beb7e1dd94b90a5c48035c35dba63804536629f30c5bf6c36ab45a3b",
+  "content_hash": "sha256:d1bee1e5e733779e895608d3af423cb0362a3841ec709c67ecf3fb42009ef6f4"
 }

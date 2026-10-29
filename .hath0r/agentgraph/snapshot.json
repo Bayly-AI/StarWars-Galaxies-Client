@@ -1,7 +1,7 @@
 {
   "schema_version": "hath0r.agentgraph/1",
   "graph_id": "agentgraph-Client",
-  "timestamp": "2026-10-28T18:12:02.953168+00:00",
+  "timestamp": "2026-10-29T13:58:42.417776+00:00",
   "nodes": [
     {
       "id": "doc:agents-root",
@@ -662,7 +662,7 @@
       "content": "4-Tier Task Evaluation for eval-baseline-client on branch development: R_task=1.0000 (det=1.00, traj=1.00, adv=1.00, goal=1.00). Gate=PASSED.",
       "properties": {
         "source_files": {
-          ".hath0r/evals/latest.json": "sha256:e1170df0d1dc516b9f915b99507cffee8f8f92aaa526f05352076ae477a25763"
+          ".hath0r/evals/latest.json": "sha256:1aa5e8a8b06320aaa66c9029b8cd55c8cb9ff1064f229601dbe894fab1cd94b1"
         },
         "source": "local_memory",
         "tags": [
@@ -684,7 +684,7 @@
       "content": "4-Tier Task Evaluation for clean-repo-client on branch development: R_task=1.0000 (det=1.00, traj=1.00, adv=1.00, goal=1.00). Gate=PASSED.",
       "properties": {
         "source_files": {
-          ".hath0r/evals/latest.json": "sha256:2bfb2073aa9e38656de93fc677feefbf565a585c5ceebc4aa75e0f149c5504cf"
+          ".hath0r/evals/latest.json": "sha256:1aa5e8a8b06320aaa66c9029b8cd55c8cb9ff1064f229601dbe894fab1cd94b1"
         },
         "source": "local_memory",
         "tags": [
@@ -703,15 +703,15 @@
       "plane": "memory",
       "type": "session",
       "label": "Micro Session sess-20261016-123217-093071",
-      "content": "Micro Session sess-20261016-123217-093071 [completed] | Focus: Provisioning CR-TASK-EVAL-001 for Client | Reads: 11, Writes: 17 | Entries: Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=1.00, PASS)",
+      "content": "Micro Session sess-20261016-123217-093071 [completed] | Focus: Provisioning CR-TASK-EVAL-001 for Client | Reads: 13, Writes: 21 | Entries: Compounded eval:eval-baseline-client: Task Evaluation eval-baseline-client (R=1.00, PASS)",
       "properties": {
         "session_id": "sess-20261016-123217-093071",
         "prior_session_id": null,
         "parent_session_id": null,
-        "read_count": 11,
-        "write_count": 17,
+        "read_count": 13,
+        "write_count": 21,
         "status": "completed",
-        "byte_size": 1844,
+        "byte_size": 1886,
         "source": "local_memory",
         "tags": [
           "session",

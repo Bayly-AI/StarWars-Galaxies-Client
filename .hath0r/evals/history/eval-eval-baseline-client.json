@@ -1,13 +1,13 @@
 {
   "schema_version": "hath0r.evals.scorecard/v1",
   "rule_id": "CR-TASK-EVAL-001",
-  "eval_id": "eval-20261028-174459-20207d",
+  "eval_id": "eval-20261029-135841-316b30",
   "task_id": "eval-baseline-client",
   "issue_number": null,
   "repo_name": "Client",
   "branch": "development",
-  "evaluated_at": "2026-10-28T17:44:59.637270+00:00",
-  "duration_ms": 224.41,
+  "evaluated_at": "2026-10-29T13:58:41.661068+00:00",
+  "duration_ms": 200.56,
   "passed_gate": true,
   "r_task": 1.0,
   "min_reward_threshold": 0.8,
@@ -64,13 +64,13 @@
       "estimated_usd": 0.0,
       "max_usd": 0.25,
       "session_id": "sess-20261016-123217-093071",
-      "session_reads": 10,
-      "session_writes": 14,
-      "session_bytes": 1900,
+      "session_reads": 13,
+      "session_writes": 20,
+      "session_bytes": 1906,
       "within_capsule_budget": true,
-      "latency_ms": 70.31,
+      "latency_ms": 76.04,
       "taguchi_quality_loss": 0.0001,
-      "snr_db": 29.08
+      "snr_db": 28.4
     },
     "adversarial": {
       "score": 1.0,
@@ -92,9 +92,39 @@
       "consensus_score": 1.0
     }
   },
+  "evidence_trust_report": {
+    "schema": "hath0r.security.evidence_trust_report/1",
+    "tiers": {
+      "VERIFIED_EXECUTION": [
+        ".hath0r/evals/latest.json"
+      ],
+      "STATIC_AST_ANALYSIS": [
+        ".hath0r/evals/post-task-hook.sh",
+        ".hath0r/agentgraph/snapshot.json",
+        ".hath0r/evals/history/eval-eval-baseline-client.json",
+        ".hath0r/evals/latest.json",
+        ".hath0r/memory/graph.json",
+        ".hath0r/memory/hashes.json",
+        ".hath0r/memory/sessions/current.json",
+        ".hath0r/memory/sessions/latest.json",
+        ".hath0r/memory/sessions/sess-20261016-123217-093071.json",
+        "cfg/evals/task-eval.json",
+        "CLAUDE.md",
+        "THREATMODEL.md"
+      ],
+      "UNVERIFIED_FILE_PRESENCE": [
+        ".agents/"
+      ]
+    },
+    "counts": {
+      "VERIFIED_EXECUTION": 1,
+      "STATIC_AST_ANALYSIS": 12,
+      "UNVERIFIED_FILE_PRESENCE": 1
+    }
+  },
   "blocking_reasons": [],
   "observability_sync": {
     "mode": "pending"
   },
-  "content_hash": "sha256:e916b62a8ea7e6dc6bc6c81560cfdab7ebd5730d706432aaea52ef613884f426"
+  "content_hash": "sha256:6c438ecfd5978c561382037127bef98d5984d5176ecf9c3440bb9397ea705491"
 }
