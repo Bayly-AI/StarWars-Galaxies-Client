@@ -1,63 +1,70 @@
 {
   "schema_version": "hath0r.memory_hashes/1",
   "repo_name": "Client",
-  "revision": 114,
-  "updated_at": "2026-10-29T14:15:51.704668+00:00",
+  "revision": 127,
+  "updated_at": "2026-10-31T16:15:47.955285+00:00",
   "files": {
     ".hath0r/memory/architecture.md": {
       "sha256": "sha256:bb77e27d7eb55d790ba3ed8322101d2e637f1fcbf9d13cfc72bceeba7e32d25e",
       "content_hash": "sha256:bb77e27d7eb55d790ba3ed8322101d2e637f1fcbf9d13cfc72bceeba7e32d25e",
       "revision": 1,
       "byte_size": 198,
-      "updated_at": "2026-10-29T14:15:51.704668+00:00"
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
     },
     ".hath0r/memory/core_rules.md": {
       "sha256": "sha256:a38deda7ad37f4afd010ea32d39d64d3142df11dd47330531175b7a3286e9749",
       "content_hash": "sha256:a38deda7ad37f4afd010ea32d39d64d3142df11dd47330531175b7a3286e9749",
       "revision": 3,
       "byte_size": 630,
-      "updated_at": "2026-10-29T14:15:51.704668+00:00"
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
     },
     ".hath0r/memory/graph.json": {
-      "sha256": "sha256:2539ee203a932b3d21306212096f2808db132cef9214fdebe95d5fb59eeb4235",
-      "content_hash": "sha256:59ef405604b6a538675ca1c30fda21f513d7ce3635f568df544ca7c1bbfde324",
-      "revision": 85,
-      "byte_size": 12410,
-      "updated_at": "2026-10-29T14:15:51.704668+00:00"
+      "sha256": "sha256:e9737b28dbdf5aea84bf9f8ff076aafae9f4361ef167f413481e2d8d4dd40f56",
+      "content_hash": "sha256:bd7911e8846fffe3dbd3cf535fa88844c062d8a184c0ec1d76b30eba897e4fe1",
+      "revision": 95,
+      "byte_size": 14724,
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
     },
     ".hath0r/memory/sessions/current.json": {
-      "sha256": "sha256:9b2ab124577cec7d45f09e303641e33af4f088edf5ffb8c43ae25b8a4aa8c29d",
-      "content_hash": "sha256:93ec43359b45bf19e1781773f2e753dc9dedc11ae1449bb37187e4fcc5597162",
-      "revision": 34,
-      "byte_size": 1844,
-      "updated_at": "2026-10-29T14:15:51.704668+00:00"
+      "sha256": "sha256:3d2862be2a539e2d4ff8b2020c25fcda5b12d5d54afc11e82290ab1dffb2015b",
+      "content_hash": "sha256:f467eaa50435f13007edd09e890a77a0d9e1906fb69a66d20c1e6f9732c3f7eb",
+      "revision": 39,
+      "byte_size": 1997,
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
     },
     ".hath0r/memory/sessions/latest.json": {
-      "sha256": "sha256:9b2ab124577cec7d45f09e303641e33af4f088edf5ffb8c43ae25b8a4aa8c29d",
-      "content_hash": "sha256:93ec43359b45bf19e1781773f2e753dc9dedc11ae1449bb37187e4fcc5597162",
-      "revision": 34,
-      "byte_size": 1844,
-      "updated_at": "2026-10-29T14:15:51.704668+00:00"
+      "sha256": "sha256:3d2862be2a539e2d4ff8b2020c25fcda5b12d5d54afc11e82290ab1dffb2015b",
+      "content_hash": "sha256:f467eaa50435f13007edd09e890a77a0d9e1906fb69a66d20c1e6f9732c3f7eb",
+      "revision": 39,
+      "byte_size": 1997,
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
     },
     ".hath0r/memory/sessions/sess-20261016-123217-093071.json": {
       "sha256": "sha256:9b2ab124577cec7d45f09e303641e33af4f088edf5ffb8c43ae25b8a4aa8c29d",
       "content_hash": "sha256:93ec43359b45bf19e1781773f2e753dc9dedc11ae1449bb37187e4fcc5597162",
       "revision": 34,
       "byte_size": 1844,
-      "updated_at": "2026-10-29T14:15:51.704668+00:00"
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
+    },
+    ".hath0r/memory/sessions/sess-20261031-161545-c2b81d.json": {
+      "sha256": "sha256:3d2862be2a539e2d4ff8b2020c25fcda5b12d5d54afc11e82290ab1dffb2015b",
+      "content_hash": "sha256:f467eaa50435f13007edd09e890a77a0d9e1906fb69a66d20c1e6f9732c3f7eb",
+      "revision": 5,
+      "byte_size": 1997,
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
     }
   },
   "source_files": {
     ".hath0r/evals/latest.json": {
-      "sha256": "sha256:d6d74ca32f1beadaa85c0bb690ed03e0404a80a973cc46312d605cf3bf932892",
-      "revision": 7,
-      "byte_size": 3276,
+      "sha256": "sha256:8787cd4577322e623d22406756ae816cac796b98eecfbd0dc204b2597d745014",
+      "revision": 8,
+      "byte_size": 14159,
       "exists": true,
       "referenced_by": [
         "eval:clean-repo-client",
         "eval:eval-baseline-client"
       ],
-      "updated_at": "2026-10-29T14:15:51.704668+00:00"
+      "updated_at": "2026-10-31T16:15:47.955285+00:00"
     }
   }
 }

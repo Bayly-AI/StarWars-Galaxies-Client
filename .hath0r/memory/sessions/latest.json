@@ -1,21 +1,24 @@
 {
   "schema_version": "hath0r.micro_session/1",
-  "session_id": "sess-20261016-123217-093071",
-  "prior_session_id": null,
-  "parent_session_id": null,
+  "session_id": "sess-20261031-161545-c2b81d",
+  "prior_session_id": "sess-20261016-123217-093071",
+  "parent_session_id": "sess-20261016-123217-093071",
+  "revision": 5,
+  "content_hash": "sha256:f467eaa50435f13007edd09e890a77a0d9e1906fb69a66d20c1e6f9732c3f7eb",
+  "base_graph_hash": "sha256:46c5252cc225912349d67516fadd3f9e9952278cf210112f7f8740b515d8c74c",
   "task_id": null,
   "role": null,
   "repo_name": "Client",
   "status": "completed",
-  "started_at": "2026-10-16T12:32:17.373033+00:00",
-  "updated_at": "2026-10-29T14:15:51.315874+00:00",
-  "ended_at": "2026-10-29T14:15:50.008182+00:00",
-  "read_count": 14,
-  "write_count": 24,
-  "last_read_at": "2026-10-29T14:15:49.969904+00:00",
-  "last_write_at": "2026-10-29T14:15:51.315874+00:00",
-  "active_focus": "Provisioning CR-TASK-EVAL-001 for Client",
-  "prior_summary": "ounded eval:eval-baseline-client: Ta; Compounded episode:clean-repo-client: Cl; Clean Repo Lifecycle completed for Clien",
+  "started_at": "2026-10-31T16:15:45.870185+00:00",
+  "updated_at": "2026-10-31T16:15:47.669744+00:00",
+  "ended_at": "2026-10-31T16:15:45.919341+00:00",
+  "read_count": 2,
+  "write_count": 4,
+  "last_read_at": "2026-10-31T16:15:45.886092+00:00",
+  "last_write_at": "2026-10-31T16:15:47.669744+00:00",
+  "active_focus": "clean-repo-Client",
+  "prior_summary": "ion clean-repo-client (R=1.00, PASS); Started session focus: clean-repo-Client; Compounded episode:clean-repo-client: Cl",
   "recalled_nodes": [
     {
       "id": "insight:client",
@@ -26,9 +29,18 @@
   ],
   "micro_entries": [
     {
-      "timestamp": "2026-10-29T14:15:51.315874+00:00",
+      "timestamp": "2026-10-31T16:15:45.919341+00:00",
+      "kind": "milestone",
+      "summary": "Clean Repo Lifecycle completed for Client.",
+      "tags": [
+        "session-end"
+      ],
+      "node_id": null
+    },
+    {
+      "timestamp": "2026-10-31T16:15:47.669744+00:00",
       "kind": "compound",
-      "summary": "Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=1.00, PASS)",
+      "summary": "Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=0.95, PASS)",
       "tags": [
         "eval",
         "cr-task-eval-001",
@@ -41,14 +53,8 @@
   ],
   "next_steps": [],
   "compounded_node_ids": [
-    "fact:repo-client-orientation",
     "episode:clean-repo-client",
-    "rule:cr-task-eval-001",
-    "eval:eval-baseline-client",
     "eval:clean-repo-client"
   ],
-  "capsule_bytes": 1844,
-  "revision": 34,
-  "base_graph_hash": "sha256:706fb15f2a40a6e38dcfd2a113fae75b71517f51609674dcf9696d6a17227380",
-  "content_hash": "sha256:93ec43359b45bf19e1781773f2e753dc9dedc11ae1449bb37187e4fcc5597162"
+  "capsule_bytes": 1997
 }
