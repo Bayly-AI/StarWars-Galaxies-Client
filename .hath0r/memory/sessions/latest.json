@@ -3,58 +3,52 @@
   "session_id": "sess-20261031-161545-c2b81d",
   "prior_session_id": "sess-20261016-123217-093071",
   "parent_session_id": "sess-20261016-123217-093071",
-  "revision": 5,
-  "content_hash": "sha256:f467eaa50435f13007edd09e890a77a0d9e1906fb69a66d20c1e6f9732c3f7eb",
-  "base_graph_hash": "sha256:46c5252cc225912349d67516fadd3f9e9952278cf210112f7f8740b515d8c74c",
+  "revision": 10,
+  "content_hash": "sha256:e09ea729815b9874e4783d880073b6c95dcb8b1df381700b86381a490a2a3a20",
+  "base_graph_hash": "sha256:33047fb5663964b7b8fb98c0358cf19529e10422d728f68409b15ab62f86d33e",
   "task_id": null,
   "role": null,
   "repo_name": "Client",
   "status": "completed",
   "started_at": "2026-10-31T16:15:45.870185+00:00",
-  "updated_at": "2026-10-31T16:15:47.669744+00:00",
+  "updated_at": "2026-11-02T16:41:24.720919+00:00",
   "ended_at": "2026-10-31T16:15:45.919341+00:00",
-  "read_count": 2,
-  "write_count": 4,
-  "last_read_at": "2026-10-31T16:15:45.886092+00:00",
-  "last_write_at": "2026-10-31T16:15:47.669744+00:00",
-  "active_focus": "clean-repo-Client",
-  "prior_summary": "ion clean-repo-client (R=1.00, PASS); Started session focus: clean-repo-Client; Compounded episode:clean-repo-client: Cl",
+  "read_count": 4,
+  "write_count": 7,
+  "last_read_at": "2026-11-02T16:41:24.720919+00:00",
+  "last_write_at": "2026-11-02T16:41:23.299861+00:00",
+  "active_focus": "Repository orientation verified for Client",
+  "prior_summary": "pounded eval:clean-repo-client: Task; Compounded fact:repo-client-orientation:; Compounded rule:cr-task-eval-001: Automa",
   "recalled_nodes": [
     {
-      "id": "insight:client",
-      "type": "insight",
-      "label": "Synthesized Insight on client",
-      "snippet": "Consolidated from 2 memory nodes tagged 'client'. Recurring themes: client, clean, repo, r"
+      "id": "fact:repo-client-orientation",
+      "type": "fact",
+      "label": "Client Repository Memory Orientation",
+      "snippet": "Client: **Ground-Up 64-Bit Modern Client for Star Wars Galaxies (Strategy B) & Enterprise "
     }
   ],
   "micro_entries": [
     {
-      "timestamp": "2026-10-31T16:15:45.919341+00:00",
-      "kind": "milestone",
-      "summary": "Clean Repo Lifecycle completed for Client.",
-      "tags": [
-        "session-end"
-      ],
-      "node_id": null
-    },
-    {
-      "timestamp": "2026-10-31T16:15:47.669744+00:00",
+      "timestamp": "2026-11-02T16:41:23.299861+00:00",
       "kind": "compound",
-      "summary": "Compounded eval:clean-repo-client: Task Evaluation clean-repo-client (R=0.95, PASS)",
+      "summary": "Compounded eval:eval-baseline-client: Task Evaluation eval-baseline-client (R=0.94, PASS)",
       "tags": [
         "eval",
         "cr-task-eval-001",
-        "clean-repo-client",
+        "eval-baseline-client",
         "passed",
         "compounded"
       ],
-      "node_id": "eval:clean-repo-client"
+      "node_id": "eval:eval-baseline-client"
     }
   ],
   "next_steps": [],
   "compounded_node_ids": [
     "episode:clean-repo-client",
-    "eval:clean-repo-client"
+    "eval:clean-repo-client",
+    "fact:repo-client-orientation",
+    "rule:cr-task-eval-001",
+    "eval:eval-baseline-client"
   ],
-  "capsule_bytes": 1997
+  "capsule_bytes": 1924
 }

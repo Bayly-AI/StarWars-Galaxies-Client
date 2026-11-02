@@ -1,15 +1,15 @@
 {
   "schema_version": "hath0r.evals.scorecard/v1",
   "rule_id": "CR-TASK-EVAL-001",
-  "eval_id": "eval-20261031-161546-63a6d9",
-  "task_id": "clean-repo-client",
+  "eval_id": "eval-20261102-164120-7736c4",
+  "task_id": "eval-baseline-client",
   "issue_number": null,
   "repo_name": "Client",
   "branch": "development",
-  "evaluated_at": "2026-10-31T16:15:46.700422+00:00",
-  "duration_ms": 942.24,
+  "evaluated_at": "2026-11-02T16:41:20.136867+00:00",
+  "duration_ms": 3077.6,
   "passed_gate": true,
-  "r_task": 0.9456,
+  "r_task": 0.9448,
   "min_reward_threshold": 0.8,
   "weights": {
     "deterministic": 0.4,
@@ -19,8 +19,8 @@
   },
   "tier_scores": {
     "deterministic": 0.9437,
-    "trajectory": 0.9333,
-    "adversarial": 0.9686,
+    "trajectory": 0.9241,
+    "adversarial": 0.9726,
     "goal_alignment": 0.9287
   },
   "tiers": {
@@ -67,7 +67,7 @@
         "calibration_4h": {
           "passed": true,
           "is_fresh": false,
-          "age_hours": 412.41,
+          "age_hours": 460.84,
           "max_age_hours": 4.0
         },
         "local_quality_gates": {
@@ -252,25 +252,25 @@
       }
     },
     "trajectory": {
-      "score": 0.9333,
+      "score": 0.9241,
       "passed": true,
       "tokens_used": 149,
       "max_tokens": 50000,
       "estimated_usd": 0.000447,
       "max_usd": 0.25,
       "session_id": "sess-20261031-161545-c2b81d",
-      "session_reads": 2,
-      "session_writes": 3,
-      "session_bytes": 1941,
-      "capsule_fill_ratio": 0.9478,
+      "session_reads": 3,
+      "session_writes": 6,
+      "session_bytes": 1914,
+      "capsule_fill_ratio": 0.9346,
       "within_capsule_budget": true,
-      "latency_ms": 346.48,
-      "taguchi_quality_loss": 0.0018,
-      "taguchi_score": 0.9755,
-      "snr_db": 15.23
+      "latency_ms": 1264.14,
+      "taguchi_quality_loss": 0.024,
+      "taguchi_score": 0.92,
+      "snr_db": 3.98
     },
     "adversarial": {
-      "score": 0.9686,
+      "score": 0.9726,
       "passed": true,
       "adversarial_flaws_count": 0,
       "adversarial_flaws": [],
@@ -279,24 +279,22 @@
       "minor_findings": [
         "Repeated code blocks detected (0.74%, -0.0074)"
       ],
-      "added_lines_count": 54,
+      "added_lines_count": 0,
       "change_categories": {
         "ui": [],
         "script": [],
-        "text": [
-          "thresholds.json"
-        ],
+        "text": [],
         "other": []
       },
-      "changed_files_count": 1
+      "changed_files_count": 0
     },
     "goal_alignment": {
       "score": 0.9287,
       "passed": true,
-      "task_id": "clean-repo-client",
+      "task_id": "eval-baseline-client",
       "issue_number": null,
-      "active_focus": "clean-repo-Client",
-      "goal_keywords_count": 3,
+      "active_focus": "Provisioning CR-TASK-EVAL-001 for Client",
+      "goal_keywords_count": 4,
       "goal_overlap_score": 0.98,
       "compounded_nodes_count": 6,
       "consensus_score": 0.826
@@ -407,6 +405,7 @@
       ],
       "STATIC_AST_ANALYSIS": [
         ".hath0r/agentgraph/snapshot.json",
+        ".hath0r/mcp.json",
         ".hath0r/memory/graph.json",
         ".hath0r/memory/hashes.json",
         ".hath0r/memory/sessions/current.json",
@@ -417,7 +416,7 @@
     },
     "counts": {
       "VERIFIED_EXECUTION": 1,
-      "STATIC_AST_ANALYSIS": 6,
+      "STATIC_AST_ANALYSIS": 7,
       "UNVERIFIED_FILE_PRESENCE": 0
     }
   },
@@ -425,5 +424,5 @@
   "observability_sync": {
     "mode": "pending"
   },
-  "content_hash": "sha256:de5b22ec4a77d75380b4f3e3cb859fa7893859a467687933cc584dc91a549653"
+  "content_hash": "sha256:a1865473d4a24d867a98fb736671b901f8a51a80939c8e7c628c7d47dac51afc"
 }
